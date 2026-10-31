@@ -789,8 +789,8 @@ add(("pb", "CRediT authorship contribution statement.", "Leon Sandler: Conceptua
 add(("pb", "Data and code availability.", "All code (Python, NumPy, SciPy, Matplotlib \\cite{NumPy,SciPy}) and the data behind every figure and table are at %s "
         "(MIT license) and archived at https://doi.org/%s; this manuscript is archived at https://doi.org/%s. Input tables shared with the companion paper "
         "are documented as such in the README." % (GITHUB, DOIS.get("code", "(to be assigned)"), DOIS.get("paper", "(to be assigned)"))))
-add(("pb", "Related manuscript.", "A companion manuscript on the homogeneous version of the trigger and its continuation into cycles has been prepared for The "
-        "European Physical Journal C%s; it shares the class of models but none of the results reported here."
+add(("pb", "Related manuscript.", "A companion manuscript on the homogeneous version of the trigger and its continuation into cycles has been prepared for "
+        "General Relativity and Gravitation%s; it shares the class of models but none of the results reported here."
         % ((", archived at https://doi.org/%s" % COMP["paper"]) if COMP.get("paper") else "")))
 add(("pb", "Declaration of generative AI and AI-assisted technologies in the writing process.", "During the preparation of this work the author used Claude "
         "(Anthropic) to assist with the numerical analysis, code, literature checking and drafting. After using this tool, the author reviewed and edited the "
@@ -1018,7 +1018,7 @@ def letter():
          "surface. An optional neutrino coupling is shown to be invisible to terrestrial oscillation experiments, with its cosmological signatures given. A "
          "continuation through a bounce is shown not to be supported, because it would need a thermal relic.")
     para("Related submission. The homogeneous, classical version of the trigger and its continuation into cycles are the subject of a separate manuscript "
-         "submitted to The European Physical Journal C%s. Both grew out of one earlier, broader draft that a review recommended dividing; the granularity "
+         "submitted to General Relativity and Gravitation%s. Both grew out of one earlier, broader draft that a review recommended dividing; the granularity "
          "bound reported here does not affect that paper, whose field has a cosmological Compton length. The two share the class of models but not their "
          "results, and I will provide the companion manuscript on request."
          % ((" (preprint https://doi.org/%s)" % COMP["paper"]) if COMP.get("paper") else ""))

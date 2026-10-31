@@ -71,7 +71,7 @@ Input tables shared with the companion paper (computed by scripts in `sandlerleo
 
 The homogeneous (symmetron) version of the trigger, whose field has a cosmological Compton length and is therefore not affected by the granularity
 criterion, and its continuation into cycles are treated in "Matter-Dilution-Triggered Recollapse and Conditional Nonsingular Cycles in a Metastable
-Dark-Energy Model" (The European Physical Journal C; code `sandlerleon/late-time-vacuum-decay`). The two papers share the class of models but not
+Dark-Energy Model" (General Relativity and Gravitation; code `sandlerleon/late-time-vacuum-decay`). The two papers share the class of models but not
 their results.
 
 ## License
