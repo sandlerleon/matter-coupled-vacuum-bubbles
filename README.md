@@ -6,7 +6,7 @@ Leon Sandler, Independent Researcher — sandler.leon@gmail.com — ORCID 0009-0
 
 Code, data and manuscript for a paper prepared for **Physics of the Dark Universe** (Elsevier). Manuscript:
 `manuscript/PDU_Vacuum_Bubbles.{docx,tex,pdf}` (elsarticle), supplement `manuscript/PDU_Vacuum_Bubbles_Supplement.docx`, cover letter
-`manuscript/PDU_Cover_Letter.docx`.
+`manuscript/PDU_Cover_Letter.docx`. Archived on Zenodo: paper 10.5281/zenodo.23841874, code 10.5281/zenodo.23841878.
 
 ## What the paper shows
 

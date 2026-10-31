@@ -561,7 +561,7 @@ add(("pb", "CRediT authorship contribution statement.", "Leon Sandler: Conceptua
 add(("pb", "Data and code availability.", "All code (Python, NumPy, SciPy, Matplotlib \\cite{NumPy,SciPy}) and the data behind every figure and table are at %s "
         "(MIT license) and archived at https://doi.org/%s; this manuscript is archived at https://doi.org/%s. Input tables shared with the companion paper "
         "are documented as such in the README." % (GITHUB, DOIS.get("code", "(to be assigned)"), DOIS.get("paper", "(to be assigned)"))))
-add(("pb", "Related manuscript.", "A companion manuscript on the homogeneous version of the trigger and its continuation into cycles is submitted to The "
+add(("pb", "Related manuscript.", "A companion manuscript on the homogeneous version of the trigger and its continuation into cycles has been prepared for The "
         "European Physical Journal C%s; it shares the class of models but none of the results reported here."
         % ((", archived at https://doi.org/%s" % COMP["paper"]) if COMP.get("paper") else "")))
 add(("pb", "Declaration of generative AI and AI-assisted technologies in the writing process.", "During the preparation of this work the author used Claude "
