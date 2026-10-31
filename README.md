@@ -36,6 +36,7 @@ density is high. In the mean-field description, dilution makes the held vacuum m
 | Static field around discrete sources; granular decay rate (Poisson, first order) | 3.5 | `granular_field.py` |
 | Nonperturbative bounce with a source on its axis; self-screening of a source (thin shell) | 3.5 | `nonpert_bounce.py` |
 | Granular rate with self-screened particles | 3.5 | `screened_rate.py` |
+| Three-dimensional bounce with a row of discrete sources against the same coupling smeared | 3.5 | `multisource_bounce.py` |
 | Transition order with evolving void contrasts | 4.4 | `env_evolution.py` |
 | O(4) bounce, wall tension and thickness, thin-wall comparison, nucleation history | 4 | `vacuum_wall.py`, `cdl_lib.py`, `thermal.py` |
 | Transmission through the wall (Pöschl–Teller validated), thermal pressure, dark-matter runaway | 5 | `interface_transport.py` |
@@ -56,7 +57,7 @@ Python 3.11 with the packages in `requirements.txt`; pdflatex with `elsarticle.c
 python vacuum_phase_map.py && python vacuum_wall.py && python interface_transport.py      # ~25 min for the transport
 python bubble_gravity.py && python bubble_to_cycle.py && python bubble_handoff.py && python bubble_entropy.py
 python viability_mc.py && python interface_validation.py && python granularity.py
-python granular_field.py && python nonpert_bounce.py && python screened_rate.py && python wave_wall_1d.py && python region_sensitivity.py && python viability_extended.py && python env_evolution.py && python neutrino_coupling.py
+python granular_field.py && python nonpert_bounce.py && python nonpert_bounce.py convergence && python nonpert_bounce.py saturation && python multisource_bounce.py && python screened_rate.py && python wave_wall_1d.py && python region_sensitivity.py && python viability_extended.py && python env_evolution.py && python neutrino_coupling.py
 python make_int_figures.py && python make_gran_figure.py && python make_resolved_figures.py && python paper2_build.py
 cd ../manuscript && pdflatex PDU_Vacuum_Bubbles.tex && pdflatex PDU_Vacuum_Bubbles.tex
 ```

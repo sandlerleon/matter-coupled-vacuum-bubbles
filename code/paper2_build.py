@@ -60,7 +60,9 @@ SV, DBJ, GRJ = J("survival.json"), J("density_bounce.json"), J("granularity.json
 TITLE = ("Density-Dependent Vacuum Bubble Nucleation in Matter-Coupled Dark-Sector Cosmology: Dark-Matter Granularity, Wall Dynamics and "
          "Transmission")
 GF, WWJ, RSJ, VEJ, NUJ = J("granular_field.json"), J("wave_wall_1d.json"), J("region_sensitivity.json"), J("viability_extended.json"), J("neutrino_coupling.json")
-NBJ, SRJ, EEV = J("nonpert_bounce.json"), J("screened_rate.json"), J("env_evolution.json")
+NBJ, SRJ, EEV, MSJ = J("nonpert_bounce.json"), J("screened_rate.json"), J("env_evolution.json"), J("multisource_bounce.json")
+NBC = {(c["h"], c["L"]): c for c in NBJ["convergence"]}
+MSR = {(r["cfg"]["sources"], r["cfg"].get("d")): r for r in MSJ["runs"]}
 NBQ = {(b["q"], b["rs"]): b for b in NBJ["bounces"]}
 SR1 = min(SRJ["rows"], key=lambda r: abs(np.log(r["m_dm_meV"] / 1e9)))
 CMB = NUJ["cmb"]
@@ -101,7 +103,7 @@ PREF = max(max(abs(r["prefactor_up"] / r["central"] - 1), abs(r["prefactor_down"
 RSI, RSR = RSJ["isolated"], RSJ["regions"]
 NUE = NUJ["environments"]
 HIGHLIGHTS = ["Dilution makes a matter-held vacuum metastable below a degeneracy density",
-              "Deformable bounces confirm it: particle dark matter gives the zero-density rate",
+              "Discrete sources suppress the decay far less than the mean field predicts",
               "Wave dark matter between 3 meV and 0.25 eV restores the smooth mean field",
               "Regions decay in order of their density; galactic haloes keep the old vacuum",
               "Dark matter crossing the runaway wall is kicked forward at three quarters of c"]
@@ -113,15 +115,17 @@ ABSTRACT = (
     "mean-field effective potential becomes metastable below a degeneracy density and Coleman--De Luccia tunneling switches on. We test the assumption "
     "behind this picture, that the field feels a smooth density. For a vacuum at the dark-energy scale the field's Compton length is about %.2f mm, and "
     "the dark-matter energy inside a Compton volume is only %.2f$m_\\varphi^4$. A spatially resolved treatment, the static field around discrete sources "
-    "and the decay rate with randomly placed sources at first order in each source's coupling, checked against a nonperturbative bounce that deforms "
-    "around a source, shows that within this model particle dark matter leaves the vacuum between the particles at its zero-density rate: for 1 MeV "
-    "particles a fraction $%s$ of the mean-field suppression survives at first order, and less once the particles screen themselves. The mean field holds for wave "
+    "and the decay rate with randomly placed sources at first order in each source's coupling, together with nonperturbative bounces that deform "
+    "around a single source and around a row of sources, indicates that discrete dark-matter sources suppress the decay far less than a homogeneous "
+    "mean-field treatment predicts: for 1 MeV particles a fraction $%s$ of the mean-field suppression survives at first order, and less once the "
+    "particles screen themselves. Within this model, particle dark matter therefore leaves the vacuum close to its zero-density rate; general "
+    "many-body source configurations remain open. The mean field holds for wave "
     "dark matter heavier than the field and still classical, about %.0f meV to %.2f eV, which a 1+1-dimensional simulation of a wall running through "
     "such dark matter confirms. The decay is then environmental: a region completes its transition at a scale factor proportional to $(1+\\delta)^{1/3}$, "
     "voids first, while galactic haloes keep the held vacuum. The walls run away; dark matter crossing them gains the sudden-crossing energy and trails "
     "the wall at %.2fc. Transitioned regions recollapse, and within the thin-wall junction model an isolated Hubble-scale bubble develops a trapped "
-    "surface before its interior bounces. An optional neutrino coupling is limited by neutrino free streaming in the early universe to $y\\lesssim10^{-4}$ "
-    "and then has no observable consequence."
+    "surface before its interior bounces. An optional neutrino coupling is limited by an approximate early-universe free-streaming criterion to "
+    "$y\\lesssim10^{-4}$, at which it has no observable consequence."
     % (GT["compton_length_mm"], GT["rho_over_mphi4"], texsci(PEX["1 MeV"]["fraction_of_first_order_mean_field_suppression"], 0), GT["m_phi_meV"],
        GT["classical_max_mass_meV"] / 1e3, W10["v_dm_behind_late"]))
 add(("title", TITLE))
@@ -305,19 +309,40 @@ add(("p", "For heavy particles the coupling of a single source is large, and the
           "done with a nonperturbative bounce (nonpert_bounce.py). With a source on the axis of the bubble, the worst case, the field depends only on "
           "Euclidean time and on the distance from the source, and the bounce is found as the maximum, over a collective coordinate (the four-volume on the "
           "true-vacuum side of the barrier), of the constrained minimum of the action, so that the bubble is free to deform around the source. Without a "
-          "source the method reproduces the shooting action to %.1f%%. The nonperturbative increase of the action is below the first-order estimate for "
+          "source the method reproduces the shooting action to %.1f%% (%.2f%% on the finest grid). The numbers below are on a grid of spacing 0.4. The "
+          "convergence tests (Table S12b) show that enlarging the box changes nothing and that the saturation in $q$ is present at every resolution: "
+          "between $q=10^3$ and $10^4$ the increase changes by %.1f%% on a grid of spacing 0.2 and by %.1f%% at 0.25. The saturated value itself depends "
+          "on how the source, one to three grid cells across, is represented: %.0f--%.0f for grid spacings 0.2--0.4 at $q=10^4$, and %.0f--%.0f at $q=10$. "
+          "It is not converged and is quoted only to show that a single source raises the action by a bounded amount, at most about %.0f%% of the "
+          "zero-density value and three to four orders of magnitude below the first-order estimate. The nonperturbative increase of the action is below the first-order estimate for "
           "every coupling tested: their ratio is %.2f, %.2f, %.3f and %.4f for $q=1$, 10, 100 and $10^4$, because the field near the source saturates and "
           "the bubble deforms around it (Fig. 10c). The increase saturates at a value set by the size of the source, $\\Delta b=%.0f$, %.0f and %.0f for "
           "source radii 0.25, 0.5 and 1, and the static coupling of a source saturates in the same way, at $q_{\\rm eff}\\approx4\\pi r_s$ (within %.0f%% for "
-          "$r_s\\le0.1$), the thin-shell screening known from chameleon fields \\cite{KW}. A nonrelativistic particle is spread at most over its de Broglie "
+          "$r_s\\le0.1$; every case converges at two radial resolutions, Table S13), the thin-shell screening known from chameleon fields \\cite{KW}. A nonrelativistic particle is spread at most over its de Broglie "
           "length $1/(m_{\\rm dm}v)$, far below the Compton length of the field for particle dark matter, so its effective coupling is smaller than $q$ by a "
-          "factor $%s$ for 1 MeV particles, and the granular suppression of the rate falls accordingly (screened_rate.py). The first-order conclusion "
-          "therefore holds beyond first order: a single particle at the centre of the bubble raises the action by a bounded amount, and particles elsewhere by "
-          "less. What is established is a constraint within this coupling and vacuum model, not a universal exclusion of particle dark matter; a fully "
-          "three-dimensional bounce with many sources at arbitrary positions is not computed."
-          % (100 * abs(NBJ["grid_error"]), NBQ[(1.0, 0.5)]["ratio_np_over_first"], NBQ[(10.0, 0.5)]["ratio_np_over_first"],
+          "factor $%s$ for 1 MeV particles, and the granular suppression of the rate falls accordingly (screened_rate.py)."
+          % (100 * abs(NBJ["grid_error"]), 100 * abs(NBJ["saturation_fine"]["h02"]["b0"] / NBJ["b0_shooting"] - 1),
+             100 * abs(NBJ["saturation_fine"]["h02"]["db_q1e4"] / NBJ["saturation_fine"]["h02"]["db_q1e3"] - 1),
+             100 * abs(NBJ["saturation_fine"]["h025"]["db_q1e4"] / NBJ["saturation_fine"]["h025"]["db_q1e3"] - 1),
+             min([c["db_q1e4"] for c in NBJ["convergence"]] + [NBJ["saturation_fine"]["h02"]["db_q1e4"]]),
+             max([c["db_q1e4"] for c in NBJ["convergence"]] + [NBJ["saturation_fine"]["h02"]["db_q1e4"]]),
+             min(c["db_q10"] for c in NBJ["convergence"]), max(c["db_q10"] for c in NBJ["convergence"]),
+             100 * max([c["db_q1e4"] for c in NBJ["convergence"]] + [NBJ["saturation_fine"]["h02"]["db_q1e4"]]) / NBJ["b0_shooting"],
+             NBQ[(1.0, 0.5)]["ratio_np_over_first"], NBQ[(10.0, 0.5)]["ratio_np_over_first"],
              NBQ[(100.0, 0.5)]["ratio_np_over_first"], NBQ[(1e4, 0.5)]["ratio_np_over_first"], NBQ[(1e4, 0.25)]["db_np"], NBQ[(1e4, 0.5)]["db_np"],
              NBQ[(1e4, 1.0)]["db_np"], 100 * SRJ["interpolation_max_dev_small_rs"], texsci(SR1["screening"], 0))))
+md = lambda k: MSR[k]["db"]
+add(("p", "Several sources were treated with a three-dimensional bounce (multisource_bounce.py): a periodic row of discrete sources along a line, "
+          "spacing $d$, coupling $q=%.0f$ and radius %.0f each, so that the field depends on Euclidean time, the position along the row and the distance from "
+          "it, against the same coupling per unit length smeared uniformly along the line. The bubble is free to deform and to sit between the sources. "
+          "Without sources the three-dimensional code gives $b=%.1f$ against %.1f from shooting. For $d=8$, 12 and 20 the discrete row raises the action by "
+          "%.1f, %.1f and %.1f, the smeared line by %.1f, %.1f and %.1f: the same mean coupling suppresses the decay far less when it is concentrated in "
+          "discrete sources, and once the spacing exceeds the size of the bubble the discrete row hardly matters while the smeared line still does. "
+          "This supports the first-order conclusion beyond first order: discrete sources suppress the decay much less than a homogeneous mean-field "
+          "treatment predicts. What is established is a constraint within this coupling and vacuum model, for a single source and for a row of sources; a "
+          "fully three-dimensional bounce among many sources at random positions is not computed, and general many-body configurations remain open."
+          % (MSJ["q"], MSJ["rs"], MSJ["b0_3d"], MSJ["b0_shooting"], md(("discrete", 8.0)), md(("discrete", 12.0)), md(("discrete", 20.0)),
+             md(("smeared", 8.0)), md(("smeared", 12.0)), md(("smeared", 20.0)))))
 add(("fig", "fig3_resolved_granularity.png", "Fig. 10. (a) Static field in a Wigner--Seitz cell around one dark-matter source at the trigger coupling, "
             "for cells from 0.2 to 65 Compton lengths: small cells reproduce the mean-field vacuum, large cells the zero-density vacuum away from the "
             "source. (b) Suppression of the decay rate by randomly placed point sources, relative to the first-order mean-field suppression, against the "
@@ -467,7 +492,7 @@ add(("p", "For wave dark matter the crossing was simulated directly (wave_wall_1
           "not left at rest. Quanta that cross a relativistic wall into the heavier vacuum leave it with momentum $m(r^2-1)/2$ in the frame of the "
           "background and velocity $(r^2-1)/(r^2+1)=%.2f$; the simulated mean velocity of the dark matter behind the wall is %.2f, and the dark matter forms "
           "a shell that trails the wall with its energy density raised by $1/(1-v)$ (%.0f against %.1f predicted). The energy taken from the wall is %.2f of "
-          "its driving pressure, so the wall still runs away. In the transitioned region the dark matter carries %.0f%% more quanta than the adiabatic "
+          "its driving pressure, so within the friction mechanisms considered here (Table 3) the wall still runs away. In the transitioned region the dark matter carries %.0f%% more quanta than the adiabatic "
           "estimate and moves outward until the shells of neighbouring bubbles collide, after which its momentum redshifts away. Table S8 lists the "
           "diagnostics at four resolutions and two box sizes. The arrival time of the wall at a fixed position changes by %s between the two finest "
           "resolutions, the Lorentz factor relative to the mean-field run by %.1f%%, the deposited energy by %.1f%%, the velocity of the dark matter by "
@@ -701,10 +726,14 @@ add(("p", "The cosmic microwave background constrains the coupling much more str
           "neutrino temperature of %.2f eV. The scalar is then a heavy mediator for neutrino--neutrino scattering, with a contact cross-section "
           "$\\sigma\\sim y^4s/16\\pi m_\\varphi^4$, and since $m_\\varphi\\propto(1+z)^{3/2}$ grows faster than the temperature, the ratio of the scattering rate to "
           "the expansion rate rises toward late times. The CMB requires neutrinos to stream freely while the modes it measures enter the horizon "
-          "\\cite{CRS14,AH14}; demanding $\\Gamma_\\nu<H$ for $10^3<z<10^5$ (neutrino_coupling.py; an order-of-magnitude estimate) gives $y\\lesssim%s$, "
-          "set at $z\\approx10^3$. The scalar is always at least %.0f times heavier than the neutrino temperature, so it is never produced thermally and adds "
-          "nothing to $N_{\\rm eff}$. With $y\\lesssim%s$ the environmental and redshift-dependent mass shifts of Table 5 are below $%s$ meV, so the optional "
-          "coupling, if allowed by the CMB, has no observable consequence. The CMB tests the scalar here only through this optional coupling; a computation of "
+          "\\cite{CRS14,AH14}; demanding $\\Gamma_\\nu<H$ for $10^3<z<10^5$ (neutrino_coupling.py) gives the approximate theoretical bound $y\\lesssim%s$, "
+          "set at $z\\approx10^3$. It is a free-streaming criterion, not an observational confidence limit, which would need a consistent collision term "
+          "and a comparison with CMB data through a Boltzmann code. Its assumptions hold over the window: the scalar is heavier than the momentum transfer "
+          "at every redshift (Table S16), so the contact form applies, and the neutrinos are relativistic; below $z\\sim10^2$, where they become "
+          "nonrelativistic, the estimate does not apply. The scalar is always at least %.0f times heavier than the neutrino temperature, so its thermal "
+          "production is expected to be strongly suppressed in the modelled regime, subject to initial conditions and other production channels. With "
+          "$y\\lesssim%s$ the environmental and redshift-dependent mass shifts of Table 5 are below $%s$ meV, so the optional "
+          "coupling, within this bound, has no observable consequence. The CMB tests the scalar here only through this optional coupling; a computation of "
           "the full spectra with a Boltzmann code is not attempted."
           % (wz["m_phi_meV"] / 1e3, wz["T_nu_meV"] / 1e3, texsci(CMB["y_max_free_streaming"], 0), CMB["min_m_over_T"],
              texsci(CMB["y_max_free_streaming"], 0), texsci(CMB["max_mass_shift_meV_at_y_max"], 0))))
@@ -903,9 +932,25 @@ def supplement():
                 "against %.2f from shooting): action, its increase, the first-order estimate, their ratio and the background field at the source."
                 % (NBJ["b0_grid"], NBJ["b0_shooting"]),
        ["$q$", "$r_s$", "$b$", "$\\Delta b$", "first order", "ratio", "$x_{\\rm bg}(0)$"], rows, None))
-    rows = [["%.2f" % c["rs"], "%g" % c["q"], "%.4f" % c["q_eff"], "%.4f" % c["interp"]] for c in SRJ["check"]]
-    a(("table", "Table S13. Static coupling of a single source of radius $r_s$ (from the Yukawa tail of the nonlinear solution) against the thin-shell "
-                "interpolation $q/(1+q/4\\pi r_s)$.", ["$r_s$", "$q$", "$q_{\\rm eff}$", "interpolation"], rows, None))
+    rows = [["%s" % rs, "%g" % c["q"], "%.4f" % c["q_eff"], "%.4f" % (c["q"] / (1 + c["q"] / (4 * np.pi * float(rs)))), "%.1e" % c["resolution_change"],
+             "yes" if c["success"] else "no"] for rs, v in NBJ["screening"].items() for c in v]
+    a(("table", "Table S13. Static coupling of a single source of radius $r_s$ (Yukawa tail of the nonlinear solution, Newton minimization at two radial "
+                "resolutions) against the thin-shell interpolation $q/(1+q/4\\pi r_s)$; a case is accepted if both resolutions converge and agree to 1%.",
+       ["$r_s$", "$q$", "$q_{\\rm eff}$", "interpolation", "resolution change", "accepted"], rows, None))
+    rows = [["%.2f" % c["h"], "%.0f" % c["L"], "%.2f" % c["b0"], "%.2f" % c["db_q10"], "--", "%.2f" % c["db_q1e4"]] for c in NBJ["convergence"]]
+    sf = NBJ["saturation_fine"]
+    rows += [["0.25", "20", "%.2f" % sf["h025"]["b0"], "--", "%.2f" % sf["h025"]["db_q1e3"], "%.2f" % sf["h025"]["db_q1e4"]],
+             ["0.20", "20", "%.2f" % sf["h02"]["b0"], "--", "%.2f" % sf["h02"]["db_q1e3"], "%.2f" % sf["h02"]["db_q1e4"]]]
+    a(("table", "Table S12b. Convergence of the nonperturbative bounce (source radius 0.5): zero-density action (shooting %.2f) and the increase of the "
+                "action for $q=10$, $10^3$ and $10^4$ against grid spacing and box size. The saturated increase falls as the source is resolved and is "
+                "an upper bound." % NBJ["b0_shooting"],
+       ["grid spacing", "box", "$b_0$", "$\\Delta b(q=10)$", "$\\Delta b(q=10^3)$", "$\\Delta b(q=10^4)$"], rows, None))
+    rows = [[r["cfg"]["sources"], "%g" % r["cfg"].get("d", 0) if r["cfg"].get("d") else "--", "%.2f" % r["b"], "%.2f" % r["db"],
+             "%.3f--%.3f" % (r["ubg_min_on_axis"], r["ubg_max_on_axis"])] for r in MSJ["runs"]]
+    a(("table", "Table S18. Three-dimensional bounce with a periodic row of discrete sources ($q=%.0f$, radius %.0f, spacing $d$) and with the same "
+                "coupling per unit length smeared along the line (multisource_bounce.py; grid spacing 0.5). Last column: range of the background field on "
+                "the axis. The single-source axisymmetric code gives $\\Delta b=%.1f$ for one source at the bubble centre."
+                % (MSJ["q"], MSJ["rs"], MSJ["single_source_2d_db"]), ["sources", "$d$", "$b$", "$\\Delta b$", "axis background"], rows, None))
     rows = [[texsci(r["m_dm_meV"], 1).join("$$"), texsci(r["q"], 1).join("$$"), texsci(r["r_s"], 1).join("$$"), texsci(r["screening"], 1).join("$$"),
              texsci(max(abs(r["ln_rate_ratio_screened"]), 1e-300), 1).join("$$"), texsci(max(abs(r["ln_rate_ratio_unscreened"]), 1e-300), 1).join("$$")]
             for r in SRJ["rows"][::3]]
@@ -929,7 +974,8 @@ def supplement():
     a(("p", "Environment of the published run: Python %s, NumPy %s, SciPy %s (Windows). From the code directory: vacuum_phase_map.py, vacuum_wall.py, "
             "interface_transport.py (about 25 minutes), bubble_gravity.py, bubble_to_cycle.py, bubble_handoff.py, viability_mc.py (about 15 minutes), "
             "bubble_entropy.py, interface_validation.py, granularity.py, granular_field.py, wave_wall_1d.py (about 3 minutes), region_sensitivity.py, "
-            "viability_extended.py (about 5 minutes), env_evolution.py, nonpert_bounce.py (about 7 minutes), screened_rate.py, neutrino_coupling.py, make_int_figures.py, make_gran_figure.py, make_resolved_figures.py, "
+            "viability_extended.py (about 5 minutes), env_evolution.py, nonpert_bounce.py (about 7 minutes; 'convergence' and 'screening' modes), "
+            "multisource_bounce.py (about 20 minutes), screened_rate.py, neutrino_coupling.py, make_int_figures.py, make_gran_figure.py, make_resolved_figures.py, "
             "paper2_build.py. Input tables shared with "
             "the companion paper (bounce_tables.json, thermal_tables.json, survival.json, density_bounce.json, coupling.json, continuous_cycles.json, "
             "cycle_map.json) are included as data and documented in the README. Code: %s." % (platform.python_version(), np.__version__, scipy.__version__,
