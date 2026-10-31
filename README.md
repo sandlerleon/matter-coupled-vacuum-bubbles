@@ -58,6 +58,8 @@ python make_int_figures.py && python make_gran_figure.py && python make_resolved
 cd ../manuscript && pdflatex PDU_Vacuum_Bubbles.tex && pdflatex PDU_Vacuum_Bubbles.tex
 ```
 
+**Clean reproducibility check (2026-10-31).** A fresh clone in a new virtual environment (Python 3.11, NumPy 2.4, SciPy 1.17, packages from `requirements.txt`) reran `granular_field.py`, `wave_wall_1d.py`, `region_sensitivity.py`, `viability_extended.py`, `neutrino_coupling.py`, `interface_validation.py`, the figure scripts and `paper2_build.py`: all 10,382 numbers in the regenerated JSON files are identical to the committed ones and the regenerated LaTeX manuscript is identical.
+
 Input tables shared with the companion paper (computed by scripts in `sandlerleon/late-time-vacuum-decay`, tag v1.8.2) are included as data:
 `bounce_tables.json`, `thermal_tables.json`, `survival.json`, `density_bounce.json`, `coupling.json`, `continuous_cycles.json`, `cycle_map.json`.
 
