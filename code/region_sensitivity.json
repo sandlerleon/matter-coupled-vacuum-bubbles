@@ -1,0 +1,61 @@
+{
+ "sudden_jump": 1.5420221146815947,
+ "regions": {
+  "adiabatic": {
+   "a_max_over_a_nuc": 1.2287008811759905,
+   "lna_turn": 0.5223718714641511,
+   "lna_restoration": -0.5400913244170614,
+   "dm_energy_from_wall": null,
+   "dV_eff": 3.5964574279407433
+  },
+  "sudden": {
+   "a_max_over_a_nuc": 1.236439193927011,
+   "lna_turn": 0.5286500852232113,
+   "lna_restoration": -0.39572645221847713,
+   "dm_energy_from_wall": 0.45278117205153756,
+   "dV_eff": 3.5964574279407433
+  }
+ },
+ "isolated": {
+  "adiabatic, observed": {
+   "t_nucleation": 0.3353759223944206,
+   "t_turnaround": 1.2556131364945666,
+   "t_trapped": 2.47752168208329,
+   "t_interior_denser": 2.5610679369186062,
+   "t_restoration": 2.69592138775652,
+   "t_bounce": 2.948741995541025
+  },
+  "adiabatic, Omega_Lambda +0.02": {
+   "t_nucleation": 0.3353759223944206,
+   "t_turnaround": 1.2556131364945666,
+   "t_trapped": 2.47752168208329,
+   "t_interior_denser": 2.563568802352691,
+   "t_restoration": 2.69592138775652,
+   "t_bounce": 2.948741995541025
+  },
+  "adiabatic, Omega_Lambda -0.02": {
+   "t_nucleation": 0.3353759223944206,
+   "t_turnaround": 1.2556131364945666,
+   "t_trapped": 2.47752168208329,
+   "t_interior_denser": 2.558550278317793,
+   "t_restoration": 2.69592138775652,
+   "t_bounce": 2.948741995541025
+  },
+  "adiabatic, held coupling energy in the exterior": {
+   "t_nucleation": 0.3353759223944206,
+   "t_turnaround": 1.2556131364945666,
+   "t_trapped": 2.47752168208329,
+   "t_interior_denser": 2.5610679369186062,
+   "t_restoration": 2.69592138775652,
+   "t_bounce": 2.948741995541025
+  },
+  "sudden, observed": {
+   "t_nucleation": 0.3353759223944206,
+   "t_turnaround": 1.2198332948725596,
+   "t_trapped": 2.317957814508406,
+   "t_interior_denser": 2.412406399180232,
+   "t_restoration": 2.5654861203891555,
+   "t_bounce": 2.8486127056876747
+  }
+ }
+}

@@ -340,7 +340,7 @@ def render_tex_els(blocks, path, journal, highlights, email, affiliation, fig_di
     get = lambda k: [b for b in blocks if b[0] == k][0][1]
     kw = r" \sep ".join(tex_inline(x.strip()) for x in get("keywords").split(";"))
     L = [r"\documentclass[preprint,12pt]{elsarticle}", r"\usepackage[utf8]{inputenc}", r"\usepackage[T1]{fontenc}", r"\usepackage{amsmath,amssymb}",
-         r"\usepackage{graphicx,booktabs,array}", r"\usepackage[colorlinks=true,allcolors=blue]{hyperref}", r"\usepackage{xurl}", r"\emergencystretch=3em", r"\sloppy", r"\journal{%s}" % journal, r"\begin{document}",
+         r"\usepackage{graphicx,booktabs,array}", r"\usepackage[colorlinks=true,allcolors=blue,pageanchor=false]{hyperref}", r"\usepackage{xurl}", r"\emergencystretch=3em", r"\sloppy", r"\journal{%s}" % journal, r"\begin{document}",
          r"\begin{frontmatter}", r"\title{%s}" % tex_inline(get("title")), r"\author{Leon Sandler}", r"\ead{%s}" % email,
          r"\affiliation{%s}" % affiliation, r"\begin{abstract}", tex_inline(get("abstract")), r"\end{abstract}",
          r"\begin{highlights}"] + [r"\item " + tex_inline(h) for h in highlights] + [r"\end{highlights}", r"\begin{keyword}", kw, r"\end{keyword}",

@@ -51,7 +51,7 @@ def junction(R, sigma, rho_in, rho_out):
 
 # ------------------------------------------------------------------------------------------------ daughter region
 class Daughter:
-    def __init__(self, eta, theta0, q, theta_trig, rho_c=1e44, regenerate=True, lnrate=None, wall_w=None, bounce_form="lqc"):
+    def __init__(self, eta, theta0, q, theta_trig, rho_c=1e44, regenerate=True, lnrate=None, wall_w=None, bounce_form="lqc", dm_jump=1.0):
         self.eta, self.q, self.rho_c = eta, q, rho_c
         _, x_t0, _, x_f0, d0, _ = VP.classify_tb(eta, 0.0)
         self.x_t0, self.E0 = x_t0, (1.0 + q) * MC.VC / d0
@@ -63,6 +63,7 @@ class Daughter:
         self.wall_w = wall_w                    # None: wall energy thermalized at collision; else a separate fluid with w = wall_w until the bounce
         self.bounce_form = bounce_form          # 'lqc': H^2 = rho/3 (1 - rho/rho_c);  'quadratic': H^2 = rho/3 (1 - (rho/rho_c)^2)
         self.Sx = 0.0
+        self.dm_jump = dm_jump                  # dark-matter quanta multiplied at the wall crossing (1: adiabatic; (1 + r^2)/2r: sudden)
 
     def x_min(self, state, theta):
         st = VP.stationary_tb(self.eta, theta)
@@ -188,6 +189,12 @@ class Daughter:
             H_before = np.sqrt(self.F(N, Sr, nd, state, Kc))
             state = "true"
             self.cf = 1.0 - filter_frac
+            if self.dm_jump != 1.0:                                           # energy given to the dark matter at the crossing comes from the wall
+                r_before = self.parts(N, Sr, nd, state)[0]
+                nd *= self.dm_jump
+                gain = self.parts(N, Sr, nd, state)[0] - r_before
+                dU -= gain
+                e["dm_energy_from_wall"] = float(gain)
             if mode == "percolated" and self.wall_w is not None:
                 self.Sx += dU * np.exp(3.0 * (1.0 + self.wall_w) * N)        # unthermalized wall/collision products
             elif mode == "percolated":

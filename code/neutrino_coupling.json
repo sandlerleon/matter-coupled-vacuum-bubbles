@@ -1,0 +1,74 @@
+{
+ "environments": {
+  "deepest voids (10% of mean)": {
+   "one_plus_delta": 0.1,
+   "theta_over_deg": 0.3,
+   "x_held": 0.8058588285137395,
+   "dm_nu_over_y_meV": -0.5772439622058698
+  },
+  "mean density": {
+   "one_plus_delta": 1.0,
+   "theta_over_deg": 3.0,
+   "x_held": 0.8829261292963206,
+   "dm_nu_over_y_meV": -0.3480965097458111
+  },
+  "galactic halo (200x mean)": {
+   "one_plus_delta": 200.0,
+   "theta_over_deg": 599.9999999999999,
+   "x_held": 0.9983516035870704,
+   "dm_nu_over_y_meV": -0.004897083865601015
+  },
+  "solar neighbourhood": {
+   "one_plus_delta": 238095.23809523808,
+   "theta_over_deg": 714285.7142857142,
+   "x_held": 0.9999986000130664,
+   "dm_nu_over_y_meV": 0.0
+  }
+ },
+ "redshift_mean_density": [
+  {
+   "z": 0.0,
+   "x_held": 0.8829261292963206,
+   "dm_nu_over_y_meV": 0.0
+  },
+  {
+   "z": 0.5,
+   "x_held": 0.9382204798250117,
+   "dm_nu_over_y_meV": 0.16440902211988284
+  },
+  {
+   "z": 1.0,
+   "x_held": 0.9670409684833159,
+   "dm_nu_over_y_meV": 0.2501021953287868
+  },
+  {
+   "z": 3.0,
+   "x_held": 0.9949651691118176,
+   "dm_nu_over_y_meV": 0.3331303975757637
+  },
+  {
+   "z": 1100.0,
+   "x_held": 0.9999999997502437,
+   "dm_nu_over_y_meV": 0.34810067164333475
+  }
+ ],
+ "terrestrial": {
+  "theta_local_over_deg": 714285.7142857142,
+  "x_local": 0.9999986000130664,
+  "one_minus_x_local": 1.3999869336034365e-06,
+  "relative_density_change_over_baseline": 1.0531432274789371e-14,
+  "delta_x_over_baseline": 1.1102230246251565e-16,
+  "dm_nu_over_y_meV_over_baseline": 3.3010728956638964e-16,
+  "delta_P": "identically zero for a constant shift (absorbed into the measured masses)"
+ },
+ "backreaction": {
+  "n_nu_meV3": 0.002581658640625608,
+  "delta_eta_per_y": 8.904270495491933e-05,
+  "y_for_delta_eta_1pct_of_eta": 33.69169884853391
+ },
+ "after_transition": {
+  "x_true": -1.0984398992092161,
+  "x_held": 0.7946569125283094,
+  "dm_nu_over_y_meV": -5.6288245113673545
+ }
+}
