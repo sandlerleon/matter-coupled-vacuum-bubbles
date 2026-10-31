@@ -72,6 +72,32 @@ out["backreaction"] = dict(n_nu_meV3=n_nu, delta_eta_per_y=2.0 * n_nu / (LAM * F
 # (4) after a transition
 TW = WJ["trigger_wall"]
 out["after_transition"] = dict(x_true=TW["x_t"], x_held=TW["x_f"], dm_nu_over_y_meV=F_MEV * (TW["x_t"] - TW["x_f"]))
+# (5) early universe and the CMB: the scalar's mass grows into the past with the dark-matter density (m_phi^2 = lambda f^2 (p'' + theta),
+# theta ~ (1+z)^3), so it is a heavy mediator for neutrino-neutrino scattering at the epochs probed by the CMB. Contact cross-section
+# sigma ~ y^4 s / (16 pi m_phi^4), <s> ~ 2 (3.15 T_nu)^2, target density n_nu (all species); free streaming requires Gamma/H < 1 for modes entering
+# the horizon at 1e3 < z < 1e5. The scalar is never populated thermally if m_phi/T_nu stays large.
+H0_MEV = 1.4378e-30
+TNU0 = 0.2348 * (4.0 / 11.0) ** (1.0 / 3.0)            # meV
+OMR, OMM, OML_ = 9.14e-5, 0.311, 0.689
+zs_ = np.logspace(0, 6, 241)
+hist = []
+for z in zs_:
+    th = th0 * (1 + z) ** 3
+    xh = x_held(th)
+    mphi = np.sqrt(LAM * F_MEV ** 2 * (VP.d2p_tb(xh, ETA, th)))
+    T = TNU0 * (1 + z)
+    n = n_nu * (1 + z) ** 3
+    s_ = 2.0 * (3.15 * T) ** 2
+    gam_per_y4 = n * s_ / (16 * np.pi * mphi ** 4)
+    H = H0_MEV * np.sqrt(OMR * (1 + z) ** 4 + OMM * (1 + z) ** 3 + OML_)
+    hist.append(dict(z=float(z), m_phi_meV=float(mphi), T_nu_meV=float(T), m_over_T=float(mphi / T), contact_ok=bool(mphi ** 2 > 10 * s_),
+                     gamma_over_H_per_y4=float(gam_per_y4 / H)))
+win = [h for h in hist if 1e3 <= h["z"] <= 1e5]
+worst = max(win, key=lambda h: h["gamma_over_H_per_y4"])
+y_max = worst["gamma_over_H_per_y4"] ** -0.25
+out["cmb"] = dict(history=hist[::8], worst_in_window=worst, y_max_free_streaming=float(y_max), min_m_over_T=float(min(h["m_over_T"] for h in hist)),
+                  max_mass_shift_meV_at_y_max=float(y_max * max(abs(v["dm_nu_over_y_meV"]) for v in out["environments"].values())),
+                  note="order-of-magnitude contact-interaction estimate; free streaming at 1e3 < z < 1e5 assumed required by Planck")
 json.dump(out, open(os.path.join(HERE, "neutrino_coupling.json"), "w"), indent=1)
 for k, v in out.items():
     print(k, v)

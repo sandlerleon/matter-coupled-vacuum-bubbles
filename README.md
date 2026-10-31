@@ -34,6 +34,9 @@ density is high. In the mean-field description, dilution makes the held vacuum m
 | Phase structure, degeneracy θ = η/2, symmetron contrast, coupling check | 2 | `vacuum_phase_map.py` |
 | Granularity criterion, wave-dark-matter window, structural ratio and approach to η_c, voids, void-by-void completion | 3, 4.4 | `granularity.py` |
 | Static field around discrete sources; granular decay rate (Poisson, first order) | 3.5 | `granular_field.py` |
+| Nonperturbative bounce with a source on its axis; self-screening of a source (thin shell) | 3.5 | `nonpert_bounce.py` |
+| Granular rate with self-screened particles | 3.5 | `screened_rate.py` |
+| Transition order with evolving void contrasts | 4.4 | `env_evolution.py` |
 | O(4) bounce, wall tension and thickness, thin-wall comparison, nucleation history | 4 | `vacuum_wall.py`, `cdl_lib.py`, `thermal.py` |
 | Transmission through the wall (Pöschl–Teller validated), thermal pressure, dark-matter runaway | 5 | `interface_transport.py` |
 | Wall through wave dark matter in 1+1 D with backreaction | 5 | `wave_wall_1d.py` |
@@ -42,7 +45,7 @@ density is high. In the mean-field description, dilution makes the held vacuum m
 | Sudden-crossing energy in the region; trapping sensitivity | 7 | `region_sensitivity.py` |
 | Energy and entropy closure | 7.3 | `bubble_entropy.py` |
 | Parameter surveys; transition order a ∝ (1+δ)^{1/3} | 8, 4.4 | `viability_mc.py`, `viability_extended.py` |
-| Optional neutrino coupling | 9 | `neutrino_coupling.py` |
+| Optional neutrino coupling; early-universe scalar mass and CMB free-streaming bound | 9 | `neutrino_coupling.py` |
 | 40 validation checks (the manuscript is built only if they pass) | 8, S1 | `interface_validation.py` |
 
 ## Reproduction
@@ -53,7 +56,7 @@ Python 3.11 with the packages in `requirements.txt`; pdflatex with `elsarticle.c
 python vacuum_phase_map.py && python vacuum_wall.py && python interface_transport.py      # ~25 min for the transport
 python bubble_gravity.py && python bubble_to_cycle.py && python bubble_handoff.py && python bubble_entropy.py
 python viability_mc.py && python interface_validation.py && python granularity.py
-python granular_field.py && python wave_wall_1d.py && python region_sensitivity.py && python viability_extended.py && python neutrino_coupling.py
+python granular_field.py && python nonpert_bounce.py && python screened_rate.py && python wave_wall_1d.py && python region_sensitivity.py && python viability_extended.py && python env_evolution.py && python neutrino_coupling.py
 python make_int_figures.py && python make_gran_figure.py && python make_resolved_figures.py && python paper2_build.py
 cd ../manuscript && pdflatex PDU_Vacuum_Bubbles.tex && pdflatex PDU_Vacuum_Bubbles.tex
 ```

@@ -116,7 +116,7 @@ def run(mode, m_ratio=10.0, dz=0.005, L=200.0, T=190.0, z0=8.0, probes=(40, 70, 
     fit = least_squares(fres, [z0, 2.0, 0.0], loss="soft_l1", f_scale=0.05)
     Lf, tf = fit.x[1], fit.x[2]
     gam = np.sqrt(1.0 + ((t_ - tf) / Lf) ** 2)
-    out = dict(mode=mode, m_ratio=m_ratio, dz=dz, t=t_[::10].tolist(), z_wall=zw[::10].tolist(), gamma=gam[::10].tolist(), L_fit=float(Lf),
+    out = dict(mode=mode, m_ratio=m_ratio, dz=dz, L_box=L, t=t_[::10].tolist(), z_wall=zw[::10].tolist(), gamma=gam[::10].tolist(), L_fit=float(Lf),
                gamma_end_fit=float(gam[-1]), fit_rms=float(np.sqrt(np.mean(fres(fit.x) ** 2))), seconds=time.time() - t0)
     if dm:
         E, Pm = np.array(rec_E), np.array(rec_P)
@@ -152,17 +152,32 @@ def job(a):
 if __name__ == "__main__":
     t0 = time.time()
     jobs = [(("wave",), dict(m_ratio=10.0)), (("wave",), dict(m_ratio=3.0)), (("mean field",), {}), (("none",), {}),
-            (("wave",), dict(m_ratio=10.0, dz=0.01)), (("mean field",), dict(dz=0.01))]
-    with Pool(len(jobs)) as pool:
+            (("wave",), dict(m_ratio=10.0, dz=0.01)), (("mean field",), dict(dz=0.01)),
+            (("wave",), dict(m_ratio=10.0, dz=0.02)), (("mean field",), dict(dz=0.02)),
+            (("wave",), dict(m_ratio=10.0, dz=0.0035)), (("mean field",), dict(dz=0.0035)),
+            (("wave",), dict(m_ratio=10.0, L=260.0, T=190.0)), (("mean field",), dict(L=260.0, T=190.0))]
+    with Pool(6) as pool:
         runs = pool.map(job, jobs)
+    for r in runs:
+        r["L_box"] = r.get("L_box", None)
     out = dict(params=dict(eta=ETA, theta=TH, kappa=KAPPA, rho_star=RHO_S, x_t=X_T, x_h=X_H, r=R_RATIO, adiabatic=R_RATIO,
                            sudden=(1 + R_RATIO ** 2) / 2.0, v_quanta=(R_RATIO ** 2 - 1) / (R_RATIO ** 2 + 1),
                            shell_compression=(1 + R_RATIO ** 2) / 2.0 / (1 - (R_RATIO ** 2 - 1) / (R_RATIO ** 2 + 1)), m_phi=M_PHI,
                            sigma_degenerate=SIGMA), runs=runs)
-    base = {(r["mode"], r["dz"], r["m_ratio"]): r for r in runs}
+    base = {(r["mode"], r["dz"], r["m_ratio"], r["L_box"]): r for r in runs}
+    for k in list(base):
+        if k[3] == 200.0:
+            base[k[:3]] = base[k]
     mf = base[("mean field", 0.005, 10.0)]
+    conv = []
+    for (mode, dz_, mr, Lb), r in sorted(((k, v) for k, v in base.items() if len(k) == 4 and k[0] == "wave" and k[2] == 10.0), key=lambda kv: (kv[0][3], -kv[0][1])):
+        m_ = base[("mean field", dz_, 10.0, Lb)]
+        zc = 150.0                                                     # wall-arrival time at a fixed position
+        conv.append(dict(dz=dz_, L_box=Lb, t_at_z150=float(np.interp(zc, r["z_wall"], r["t"])), gamma_fit_end=r["gamma_end_fit"],
+                         gamma_rel_mean_field=float(r["gamma_end_fit"] / m_["gamma_end_fit"] - 1.0), deposit=r["deposit_per_length_over_rho"],
+                         v_dm=r["v_dm_behind_late"], shell=float(np.median([q_["shell_over_before"] for q_ in r["probes"]]))))
     for r in runs:
-        if r["mode"] == "wave" and r["dz"] == 0.005:
+        if r["mode"] == "wave" and r["dz"] == 0.005 and r["L_box"] == 200.0:
             r["gamma_rel_diff_vs_mean_field_end"] = float(r["gamma_end_fit"] / mf["gamma_end_fit"] - 1.0)
             r["P_eff_rel_diff_vs_mean_field"] = float(mf["L_fit"] / r["L_fit"] - 1.0)
     out["convergence"] = dict(
@@ -170,7 +185,10 @@ if __name__ == "__main__":
         mean_field_z_end_rel=float(base[("mean field", 0.01, 10.0)]["z_wall"][-1] / mf["z_wall"][-1] - 1.0),
         wave_L_rel=float(base[("wave", 0.01, 10.0)]["L_fit"] / base[("wave", 0.005, 10.0)]["L_fit"] - 1.0),
         mean_field_L_rel=float(base[("mean field", 0.01, 10.0)]["L_fit"] / mf["L_fit"] - 1.0))
+    out["convergence_table"] = conv
     json.dump(out, open(os.path.join(HERE, "wave_wall_1d.json"), "w"), indent=1)
+    for c in conv:
+        print("conv", {k: (round(v, 5) if isinstance(v, float) else v) for k, v in c.items()})
     print("r = %.3f: adiabatic %.3f, sudden %.3f; m_phi %.3f" % (R_RATIO, R_RATIO, (1 + R_RATIO ** 2) / 2, M_PHI))
     for r in runs:
         print(r["mode"], r["m_ratio"], r["dz"], "z_end %.2f gamma_end(fit) %.1f L %.3f rms %.3f [%.0fs]" % (r["z_wall"][-1], r["gamma_end_fit"],

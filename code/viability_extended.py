@@ -53,7 +53,8 @@ def evaluate(p):
     eta, B0, f0, q, dv, m = p
     tabs = _T[eta]
     code, lnI, a_t = BC.classify_point(B0, f0, max(q, -0.99), tabs, Z_LC, W_LC)
-    r = dict(T1=bool(lnI < 0), T2=a_t is not None, T3=bool(q > 0), T4=False, T5=False)
+    r = dict(T1=bool(lnI < 0), T2=a_t is not None, T3=bool(q > 0), T4=False, T5=False, eta=float(eta), B0=float(B0), f0=float(f0), q=float(q),
+             dv=float(dv), m=float(m), a_t=a_t)
     if a_t is None or q <= -0.99:
         return r
     e = float(eta)
@@ -95,6 +96,17 @@ def survey(kind, n, seed):
     out["joint_all_by_void_depth"] = [dict(range=[float(edges[i]), float(edges[i + 1])],
                                            joint_all=float(((bg & M["T4"] & M["T5"])[(dvs >= edges[i]) & (dvs <= edges[i + 1])]).mean()))
                                       for i in range(3)]
+    ok = [x for x, a, b, c in zip(res, bg, M["T4"], M["T5"]) if a and b and c]
+    ph = {}
+    for k, lab in (("B0", "B0"), ("f0", "local theta_0/theta_deg"), ("q", "q"), ("dv", "1+delta_v"), ("m", "m_dm (meV)"), ("m_phi", "m_phi (meV)"),
+                   ("a_t", "a at completion (emptiest regions)")):
+        v = np.array([x[k] for x in ok if x.get(k) is not None], dtype=float)
+        if v.size:
+            ph[lab] = dict(min=float(v.min()), q10=float(np.quantile(v, 0.1)), median=float(np.median(v)), q90=float(np.quantile(v, 0.9)),
+                           max=float(v.max()))
+    out["viable_physical_ranges"] = ph
+    out["viable_by_eta"] = {e: int(sum(1 for x in ok if abs(x["eta"] - float(e)) < 1e-9)) for e in ETAS}
+    out["n_viable"] = len(ok)
     dep = [x["deposit_over_dV"] for x in res if "deposit_over_dV" in x]
     out["deposit_over_dV_max"] = float(max(dep)) if dep else None
     return out
@@ -128,5 +140,8 @@ if __name__ == "__main__":
         print(s["kind"], s["single"], "background %.3f +meanfield %.4f all %.4f runaway|bg %s max deposit/dV %s" % (
             s["joint_background"], s["joint_background_meanfield"], s["joint_all"], s["runaway_given_background"], s["deposit_over_dV_max"]))
         print("   by void depth", s["joint_all_by_void_depth"])
+        print("   viable", s["n_viable"], s["viable_by_eta"])
+        for k, v in s["viable_physical_ranges"].items():
+            print("     %-36s %s" % (k, {kk: round(vv, 4) for kk, vv in v.items()}))
     for r in out["prediction"]:
         print(r)

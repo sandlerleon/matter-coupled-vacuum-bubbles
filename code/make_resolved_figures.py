@@ -17,7 +17,7 @@ C = ["#3E6B8A", "#B5544E", "#5C8A5C", "#8A7A3E", "#777777", "#7A5C8A", "#2E2E2E"
 
 # ---------------------------------------------------------------- granularity
 GF, GR = J("granular_field.json"), J("granularity.json")
-fig, ax = plt.subplots(1, 2, figsize=(7.6, 3.1))
+fig, ax = plt.subplots(1, 3, figsize=(10.4, 3.1))
 a = ax[0]
 for c, col in zip([c for c in GF["cells"] if c["Rc"] in (0.3, 3.0, 10.0, 30.0, 100.0)], C):
     rr = np.array(c["profile_r"]); a.plot(rr / c["Rc"], c["profile_x"], color=col, label=r"$R_c m_\varphi$ = %.1f" % c["Rc_times_mphi"])
@@ -38,12 +38,25 @@ a.set_xlim(1e-4, 1e15); a.set_ylim(1e-14, 3)
 a.set_xlabel(r"$m_{dm}$ (meV)  [as point particles]"); a.set_ylabel("suppression / mean-field suppression")
 a.legend(fontsize=6.0, loc="lower left")
 a.set_title("(b) Decay rate in a granular background", fontsize=8.5, fontweight="bold")
+NB = J("nonpert_bounce.json")
+a = ax[2]
+bs = [b for b in NB["bounces"] if b["rs"] == 0.5 and b["q"] > 0]
+qq = np.array([b["q"] for b in bs])
+a.loglog(qq, [b["db_first_order"] for b in bs], color=C[1], ls="--", marker="s", ms=3, label="first order")
+a.loglog(qq, [b["db_np"] for b in bs], color=C[0], marker="o", ms=3, label="nonperturbative bounce")
+for b in NB["bounces"]:
+    if b["q"] >= 1e4 and b["rs"] != 0.5:
+        a.plot([b["q"]], [b["db_np"]], marker="^", color=C[2], ms=4)
+a.text(1.2e3, 40, r"$r_s$ = 0.25, 1 (triangles)", fontsize=6.2, color=C[2])
+a.set_xlabel("source coupling q (one particle)"); a.set_ylabel(r"increase of the bounce action $\Delta b$")
+a.legend(fontsize=6.2, loc="upper left")
+a.set_title("(c) Source at the bubble centre", fontsize=8.5, fontweight="bold")
 fig.tight_layout(); fig.savefig(os.path.join(FIG, "fig3_resolved_granularity.png"), dpi=300, bbox_inches="tight", facecolor="white"); plt.close(fig)
 
 # ---------------------------------------------------------------- wave wall
 WW = J("wave_wall_1d.json")
 P = WW["params"]
-runs = {(r["mode"], r["m_ratio"], r["dz"]): r for r in WW["runs"]}
+runs = {(r["mode"], r["m_ratio"], r["dz"]): r for r in WW["runs"] if r.get("L_box", 200.0) == 200.0}
 fig, ax = plt.subplots(1, 2, figsize=(7.6, 3.1))
 a = ax[0]
 for key, lab, col in ((("none", 10.0, 0.005), "no dark matter", C[4]), (("mean field", 10.0, 0.005), "mean-field term", C[6]),
