@@ -113,19 +113,15 @@ add = B.append
 ABSTRACT = (
     "Can a declining dark-matter density switch on the decay of a vacuum? For a scalar whose coupling to dark matter is centered on a false vacuum, the "
     "mean-field effective potential becomes metastable below a degeneracy density, and Coleman--De Luccia tunneling switches on. We test the assumption "
-    "behind this picture, that the field feels a smooth density. For a vacuum at the dark-energy scale the field's Compton length is about %.2f mm, and "
-    "the dark-matter energy inside a Compton volume is only %.2f$m_\\varphi^4$. A spatially resolved treatment, the static field around discrete sources "
-    "and the decay rate with randomly placed sources at first order in each source's coupling, together with nonperturbative bounces that deform "
-    "around a single source and around a row of sources, indicates that discrete dark-matter sources suppress the decay far less than a homogeneous "
-    "mean-field treatment predicts: for 1 MeV particles, a fraction $%s$ of the mean-field suppression survives at first order, and less once the "
-    "particles screen themselves. Within this model, particle dark matter therefore leaves the vacuum close to its zero-density rate; general "
-    "many-body source configurations remain open. The mean field holds for wave "
-    "dark matter heavier than the field and still classical, about %.0f meV to %.2f eV, which a 1+1-dimensional simulation of a wall running through "
-    "such dark matter confirms. The decay is then environmental: a region completes its transition at a scale factor proportional to $(1+\\delta)^{1/3}$, "
-    "voids first, while galactic halos keep the held vacuum. The walls run away; the dark matter crossing them gains the sudden-crossing energy and trails "
-    "the wall at %.2fc. Transitioned regions recollapse, and within the thin-wall junction model, an isolated Hubble-scale bubble develops a trapped "
-    "surface before its interior bounces. An optional neutrino coupling is limited by an approximate early-universe free-streaming criterion to "
-    "$y\\lesssim10^{-4}$, at which it has no observable consequence."
+    "behind this picture, that the field feels a smooth density. For a vacuum at the dark-energy scale, the field's Compton length is about %.2f mm, and "
+    "the dark-matter energy inside a Compton volume is only %.2f$m_\\varphi^4$. Spatially resolved calculations (static fields, first-order rates and "
+    "nonperturbative bounces around discrete sources) indicate that discrete sources suppress the decay far less than the mean field predicts: for 1 MeV particles, a fraction $%s$ of the mean-field suppression "
+    "survives. Within this model, particle dark matter leaves the vacuum close to its zero-density rate; general many-body configurations "
+    "remain open. The mean field holds for wave dark matter between about %.0f meV and %.2f eV, which a 1+1-dimensional wall simulation confirms. The "
+    "decay is then environmental: a region completes its transition at a scale factor proportional to $(1+\\delta)^{1/3}$, voids first, while galactic "
+    "halos keep the held vacuum. The walls run away; the dark matter crossing them gains the sudden-crossing energy and trails the wall at %.2fc. "
+    "Transitioned regions recollapse, and an isolated Hubble-scale bubble develops a trapped surface before its interior bounces. An optional neutrino "
+    "coupling is limited by an approximate early-universe criterion to $y\\lesssim10^{-4}$, with no observable consequence."
     % (GT["compton_length_mm"], GT["rho_over_mphi4"], texsci(PEX["1 MeV"]["fraction_of_first_order_mean_field_suppression"], 0), GT["m_phi_meV"],
        GT["classical_max_mass_meV"] / 1e3, W10["v_dm_behind_late"]))
 add(("title", TITLE))
