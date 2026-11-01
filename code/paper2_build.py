@@ -105,25 +105,25 @@ NUE = NUJ["environments"]
 HIGHLIGHTS = ["Dilution makes a matter-held vacuum metastable below a degeneracy density",
               "Discrete sources suppress the decay far less than the mean field predicts",
               "Wave dark matter between 3 meV and 0.25 eV restores the smooth mean field",
-              "Regions decay in order of their density; galactic haloes keep the old vacuum",
+              "Regions decay in order of their density; galactic halos keep the old vacuum",
               "Dark matter crossing the runaway wall is kicked forward at three quarters of c"]
 
 B = []
 add = B.append
 ABSTRACT = (
-    "Can a declining dark-matter density switch on the decay of a vacuum? For a scalar whose coupling to dark matter is centred on a false vacuum, the "
-    "mean-field effective potential becomes metastable below a degeneracy density and Coleman--De Luccia tunneling switches on. We test the assumption "
+    "Can a declining dark-matter density switch on the decay of a vacuum? For a scalar whose coupling to dark matter is centered on a false vacuum, the "
+    "mean-field effective potential becomes metastable below a degeneracy density, and Coleman--De Luccia tunneling switches on. We test the assumption "
     "behind this picture, that the field feels a smooth density. For a vacuum at the dark-energy scale the field's Compton length is about %.2f mm, and "
     "the dark-matter energy inside a Compton volume is only %.2f$m_\\varphi^4$. A spatially resolved treatment, the static field around discrete sources "
     "and the decay rate with randomly placed sources at first order in each source's coupling, together with nonperturbative bounces that deform "
     "around a single source and around a row of sources, indicates that discrete dark-matter sources suppress the decay far less than a homogeneous "
-    "mean-field treatment predicts: for 1 MeV particles a fraction $%s$ of the mean-field suppression survives at first order, and less once the "
+    "mean-field treatment predicts: for 1 MeV particles, a fraction $%s$ of the mean-field suppression survives at first order, and less once the "
     "particles screen themselves. Within this model, particle dark matter therefore leaves the vacuum close to its zero-density rate; general "
     "many-body source configurations remain open. The mean field holds for wave "
     "dark matter heavier than the field and still classical, about %.0f meV to %.2f eV, which a 1+1-dimensional simulation of a wall running through "
     "such dark matter confirms. The decay is then environmental: a region completes its transition at a scale factor proportional to $(1+\\delta)^{1/3}$, "
-    "voids first, while galactic haloes keep the held vacuum. The walls run away; dark matter crossing them gains the sudden-crossing energy and trails "
-    "the wall at %.2fc. Transitioned regions recollapse, and within the thin-wall junction model an isolated Hubble-scale bubble develops a trapped "
+    "voids first, while galactic halos keep the held vacuum. The walls run away; the dark matter crossing them gains the sudden-crossing energy and trails "
+    "the wall at %.2fc. Transitioned regions recollapse, and within the thin-wall junction model, an isolated Hubble-scale bubble develops a trapped "
     "surface before its interior bounces. An optional neutrino coupling is limited by an approximate early-universe free-streaming criterion to "
     "$y\\lesssim10^{-4}$, at which it has no observable consequence."
     % (GT["compton_length_mm"], GT["rho_over_mphi4"], texsci(PEX["1 MeV"]["fraction_of_first_order_mean_field_suppression"], 0), GT["m_phi_meV"],
@@ -142,19 +142,19 @@ add(("p", "False-vacuum decay proceeds by the nucleation of bubbles of the true 
           "If the dark energy is the energy of such a scalar held in a vacuum by the matter term, the dilution of the dark matter by the expansion changes "
           "the vacuum structure itself, and the decay of the vacuum is placed under the control of the cosmic density. This paper asks three questions. Can a "
           "declining dark-matter density turn a stable vacuum into a metastable one? When is the density that the field feels the smooth mean density "
-          "that such an argument assumes? And what do the resulting vacuum walls do: what crosses them, how do they move, and what becomes of the region they "
+          "that such an argument assumes? What do the resulting vacuum walls do: what crosses them, how do they move, and what becomes of the region they "
           "enclose?"))
 add(("p", "Environment-dependent vacua are familiar from screened modified gravity, where the field's minimum and mass track the local density "
-          "\\cite{KW,HK,HKLM11}; in those applications the field's Compton length is long compared with the separation of the matter particles, and the "
+          "\\cite{KW,HK,HKLM11}; in those applications, the field's Compton length is long compared with the separation of the matter particles, and the "
           "density can be averaged. Vacuum decay out of a metastable state has been studied for vacua whose stability is fixed, from the Standard Model Higgs "
           "\\cite{IRS,EGR} to landscapes of many vacua \\cite{BP,FKMS}, including the signatures of bubble collisions \\cite{Kleban,AJ}. Combining the two "
-          "raises a question that neither literature had to face: a vacuum at the dark-energy scale has a Compton length below a millimetre, and whether the "
+          "raises the question that neither literature had to face: a vacuum at the dark-energy scale has a Compton length below a millimeter, and whether the "
           "dark matter looks smooth on that scale depends on what the dark matter is. The interfaces add a further question. A wall between vacua in which the "
           "dark-matter mass differs is a mass step; slow walls reflect particles whose momentum is below the step, which has been proposed as a way to filter "
           "dark matter at first-order transitions \\cite{BKL20}, while fast walls transmit them and the pressure they exert is bounded \\cite{BM09,BM17}. "
           "Bubbles of a negative vacuum enclose regions that recollapse, and bubbles in an expanding exterior can be cut off behind horizons "
           "\\cite{BGG,FG,FGG}."))
-add(("p", "The contributions are the following. (i) The phase structure of a matter-coupled potential is mapped as a function of density and tilt "
+add(("p", "The contributions of this study are as follows. (i) The phase structure of a matter-coupled potential is mapped as a function of density and tilt "
           "(Section 2). (ii) The conditions under which the field feels a smooth density are derived and tested with spatially resolved calculations; within "
           "them, particle dark matter does not provide a smooth source, and a window remains for wave dark matter heavier than the field, a bound that "
           "follows from the dark-energy scale itself (Section 3). (iii) The bounce, the "
@@ -178,15 +178,15 @@ add(("p", "and, where the dark matter can be described by a smooth nonrelativist
           "the subject of Section 3; here it is assumed. We take the tilted quartic $V_0$ in the dimensionless form"))
 add(("eq", r"p(x;\eta,\theta)=\frac{(x^2-1)^2}{8}+\frac{\eta x}{2}+\frac{\theta}{2}(x-1)^2,\qquad x=\frac{\varphi}{f},\qquad \theta=\frac{\rho_*}{\lambda f^2M^2},\qquad V_{\rm eff}=\lambda f^4\,p+{\rm const}"))
 add(("p", "where $\\eta$ tilts the potential so that $x\\approx-1$ is the zero-density true vacuum and $x\\approx1$ the false one, and the coupling "
-          "$A(\\varphi)=1+(\\varphi-f)^2/2M^2$ is centred on the false vacuum, so that the matter term $\\theta(x-1)^2/2$ vanishes there and deepens it. "
+          "$A(\\varphi)=1+(\\varphi-f)^2/2M^2$ is centered on the false vacuum, so that the matter term $\\theta(x-1)^2/2$ vanishes there and deepens it. "
           "Because $\\rho_*\\propto a^{-3}$, the mean $\\theta=\\theta_0a^{-3}$ decreases monotonically as the universe expands (vacuum_phase_map.py)."))
 add(("p", "The stationary points solve $x^3+(2\\theta-1)x+(\\eta-2\\theta)=0$. Two minima coexist for $\\theta_{\\rm low}<\\theta<\\theta_{\\rm high}$, "
           "with $\\theta_{\\rm low}=0$ for $\\eta<\\eta_c=2/(3\\sqrt3)$, and the window edges are roots of the cubic discriminant (Fig. 1b). The matter-held "
           "minimum $x_h\\approx1$ is the true vacuum above the degeneracy density, which is exactly"))
 add(("eq", r"\theta_{\rm deg}=\frac{\eta}{2},\qquad p(x;\eta,\eta/2)=\frac{(x^2-1)^2}{8}+\frac{\eta}{4}\left(x^2+1\right)"))
 add(("p", "because $p$ is then even in $x$. Below $\\theta_{\\rm deg}$ the held vacuum is metastable: dilution turns a stable vacuum into a decaying one, "
-          "and tunneling is meaningful for $0<\\theta<\\eta/2$. Above $\\theta_{\\rm high}$ (%.3f for $\\eta=0.30$) the other minimum disappears, so at high "
-          "density the matter term alone determines the vacuum. For $\\eta>\\eta_c$ the held minimum itself disappears below $\\theta_{\\rm low}$ (for example "
+          "and tunneling is meaningful for $0<\\theta<\\eta/2$. Above $\\theta_{\\rm high}$ (%.3f for $\\eta=0.30$) the other minimum disappears; thus, at high "
+          "density, the matter term alone determines the vacuum. For $\\eta>\\eta_c$ the held minimum itself disappears below $\\theta_{\\rm low}$ (for example, "
           "%.3f at $\\eta=0.45$), and the release is a classical roll rather than a tunneling event (Fig. 1a)."
           % (PM["tunneling_profiles"]["0.30"]["window"][1], PM["tunneling_profiles"]["0.45"]["window"][0])))
 add(("p", "The same structure is absent in the symmetron form of the coupling, $A=1+\\varphi^2/2M^2$ with a symmetric double well: there the held point "
@@ -195,12 +195,12 @@ add(("p", "The same structure is absent in the symmetron form of the coupling, $
           "the critical density per Hubble volume, and a tilt $\\epsilon\\gtrsim%s\\,\\mu^2v$ suffices to prevent them. The coupling energy of the dark matter "
           "between the vacua is $\\rho_*\\Delta A$ exactly; the first-order estimate $\\delta(\\Delta V)=\\rho_m\\Delta\\ln m$ agrees with it to %.2f%% when the "
           "coupling changes the rate by a factor $e$ and to %.0f%% when it moves the action across the survival window. The tunneling branch is the one in "
-          "which density-dependent bubble nucleation can occur, and the rest of the paper concerns it."
+          "which density-dependent bubble nucleation can occur, and the rest of the paper focuses on this branch."
           % (100 * COH["domain_walls"][-1]["wall_energy_per_Hubble_volume_over_rho_crit"], texsci(COH["eps_hat_min"], 0),
              100 * (min(c["exact_over_log"] for c in PM["coupling_check"]) - 1), 100 * (max(c["exact_over_log"] for c in PM["coupling_check"]) - 1))))
 add(("fig", "fig1_vacuum_landscape.png", "Fig. 1. (a) Effective potential at five densities ($\\eta=0.30$): dilution turns the matter-held minimum near "
             "$x=1$ from the true into the false vacuum at $\\theta_{\\rm deg}=\\eta/2$. (b) Phase diagram: number of minima and which is lower, with the "
-            "degeneracy line and the lines where a minimum disappears; the gray line marks $\\eta_c$.", 6.3))
+            "degeneracy line and the lines where a minimum disappears; the gray line indicates $\\eta_c$.", 6.3))
 
 # ============================================================================================ 3 granularity
 add(("h1", "3. When does the field feel a smooth dark-matter density?"))
@@ -219,18 +219,18 @@ add(("p", "If the dark matter consists of particles whose occupation of phase sp
           "applies only if many of them lie inside a Compton volume, $n_{\\rm dm}\\gg m_\\varphi^3$, which requires $m_{\\rm dm}\\ll\\rho_{\\rm dm}/m_\\varphi^3"
           "=%.2f$ meV. A particle description, on the other hand, needs an occupation per de Broglie cell below one, $m_{\\rm dm}\\gg"
           "(\\rho_{\\rm dm}/v^3)^{1/4}=%.0f$ meV for a velocity dispersion $v=10^{-3}$. The two conditions exclude each other, and fermions lighter than a few "
-          "hundred eV are excluded in any case by phase-space bounds \\cite{TG79}. For thermal relics the mismatch is large: the mean separation of 1 MeV "
+          "hundred eV are excluded in any case by phase-space bounds \\cite{TG79}. For thermal relics, the mismatch is large: the mean separation of 1 MeV "
           "particles is %.0f times the Compton length and that of 1 GeV particles %.0f times. Each particle is a screened point source around which the field "
-          "is pinned within a Compton length, as for the thin-shell objects of chameleon screening \\cite{KW}; between them the field sees zero density. If so, "
+          "is pinned within a Compton length, as for the thin-shell objects of chameleon screening \\cite{KW}; between them, the field sees zero density. If so, "
           "the held vacuum decays in the space between the particles at the zero-density rate, $\\ln(\\Gamma/H^4)=%.0f$ in the baseline, and the expected "
-          "number of bubbles in our past light cone is $e^{%.0f}$. Under this local mean-field criterion particle dark matter does not provide a smooth "
-          "source on the response scale of the field; Section 3.5 tests the consequence with a spatially resolved calculation. The bound is least severe where it does not matter: in haloes the density is highest, but there the "
+          "number of bubbles in our past light cone is $e^{%.0f}$. Under this local mean-field criterion, particle dark matter does not provide a smooth "
+          "source on the response scale of the field; Section 3.5 tests the consequence with a spatially resolved calculation. The bound is least severe where it does not matter: in halos the density is highest, but there the "
           "held vacuum is the true vacuum and nothing decays (Section 4.4); in the voids, where the decay must begin, the density is lower than the mean and "
           "the bound is stronger."
           % (GT["particle_max_mass_meV"], GT["classical_max_mass_meV"], sp["1 MeV"]["over_compton"], sp["1 GeV"]["over_compton"],
              GRJ["particle_dm"]["ln_gamma_over_H4_zero_density"], GRJ["particle_dm"]["ln_expected_bubbles_past_light_cone"])))
 add(("h2", "3.3 Wave dark matter"))
-add(("p", "A bosonic dark matter with a large occupation number is a classical field oscillating at its mass \\cite{HOTW17}, and its coupling through "
+add(("p", "Bosonic dark matter with a large occupation number is a classical field oscillating at its mass \\cite{HOTW17}, and its coupling through "
           "$A^2(\\varphi)g_{\\mu\\nu}$ gives the field a source proportional to the instantaneous trace of its stress-energy. Two regimes follow. If the dark "
           "matter is lighter than the field, $m_{\\rm dm}\\ll m_\\varphi$, the field follows the oscillation; the source passes through zero twice per period, "
           "and tunneling, which takes a time of order $m_\\varphi^{-1}$, proceeds in those intervals at the zero-density rate, with the same consequence as for "
@@ -240,13 +240,13 @@ add(("p", "A bosonic dark matter with a large occupation number is a classical f
           "field of Section 2 applies for"
           % (GT["coherence_max_mass_meV"] / 1e3)))
 add(("eq", r"m_\varphi=%.1f\ {\rm meV}\ \ll\ m_{\rm dm}\ \ll\ \left(\frac{\rho_{\rm dm}}{v^3}\right)^{1/4}=%.0f\ {\rm meV}" % (GRJ["wave_window_meV"][0], GRJ["wave_window_meV"][1])))
-add(("p", "at the trigger, a window of about two decades. Its edges have definite physical origins. The lower edge is the field's own mass, a "
+add(("p", "at the trigger, a window of about two decades. Its edges have definite physical origins. The lower edge is the mass of the field, a "
           "property of the vacuum fixed by the observed dark energy and by the requirement $B\\approx%.0f$ (Section 3.4); below it the field resolves the "
           "oscillation of the dark matter. The upper edge is the classicality of the dark matter, where its occupation per de Broglie cell falls to one; it "
           "scales as $(\\rho_{\\rm dm}/v^3)^{1/4}$ and is therefore higher in the colder, emptier voids where the decay begins (by a factor of about 3 for a "
           "tenth of the mean density and $v=10^{-4}$). The coherence condition $m_{\\rm dm}\\ll m_\\varphi/v$ is weaker. Dark matter in this mass range is a "
-          "nonthermal condensate, produced for instance by misalignment \\cite{PWW83}, which behaves as cold dark matter on all scales that have been "
-          "observed \\cite{HOTW17} and need not couple to the Standard Model. The trigger therefore specifies the dark matter, a classical bosonic field of meV "
+          "nonthermal condensate produced, for instance, by misalignment \\cite{PWW83}, which behaves as cold dark matter on all scales that have been "
+          "observed \\cite{HOTW17} and does not need to couple to the Standard Model. The trigger therefore specifies the dark matter, a classical bosonic field of meV "
           "to sub-eV mass, and everything that follows assumes it." % TW["B"]))
 add(("p", "The averaging can be made explicit. We take the dark matter to be a real scalar $\\chi$ whose mass depends on the field, $m_{\\rm dm}A(\\varphi)$, "
           "the coupling used in the simulation of Section 5. Its source in the field equation is $m_{\\rm dm}^2AA'\\chi^2$, which for a homogeneous "
@@ -256,7 +256,7 @@ add(("p", "The averaging can be made explicit. We take the dark matter to be a r
           "Section 8, growing to order one as $m_{\\rm dm}$ approaches $m_\\varphi$, where the two regimes meet. A coupling through the metric, "
           "$A^2(\\varphi)g_{\\mu\\nu}$, would give instead the source $-(A'/A)T_{\\rm dm}$ with $T_{\\rm dm}=-\\rho[1+3\\cos(2m_{\\rm dm}t)]$, which changes sign "
           "during each period; at early times, when the field is far heavier than the dark matter (Section 9), the field would follow that sign change, so "
-          "the mass coupling is the one assumed. Fluctuations of the dark-matter density on scales between the de Broglie length and the size of a void are "
+          "the mass coupling is the one assumed. Fluctuations in the dark-matter density on scales between the de Broglie length and the size of a void are "
           "part of the local density of Section 4.4, not of its granularity. Section 5 tests the averaging dynamically, with a wall running through wave "
           "dark matter."))
 rowsT1 = [["particle, any mass", "point sources; $n\\gg m_\\varphi^3$ needs $m<%.2f$ meV, particle regime needs $m>%.0f$ meV" % (GT["particle_max_mass_meV"],
@@ -274,8 +274,8 @@ add(("p", "The smallness of $\\rho_{\\rm dm}/m_\\varphi^4$ is not a property of 
 add(("eq", r"\frac{\rho_{\rm dm}}{m_\varphi^4}=\frac{\rho_{\rm dm}}{V_f}\,\frac{\Delta\tilde V_0}{1+q}\,\frac{1}{\lambda\,(\partial_x^2p)^2},\qquad \lambda=\frac{b(\eta,\theta)}{B}"))
 add(("p", "The first factor is of order one because the dark matter and the dark energy have comparable densities, which is what makes a dilution "
           "trigger possible in the first place; and $\\lambda$ is fixed by the requirement that the transition happen within a Hubble time, $B\\approx%.0f$. "
-          "Over all %d combinations of tilt, density and $q$ in the bounce tables the ratio stays below %.1f. Toward $\\eta_c$, where the held minimum becomes "
-          "shallow, both $\\lambda$ and $\\partial_x^2p$ fall and the ratio grows, but only at vanishing density: it reaches %.0f at $\\eta=%.3f$ and "
+          "Over all %d combinations of tilt, density and $q$ in the bounce tables, the ratio remains below %.1f. Toward $\\eta_c$, where the held minimum becomes "
+          "shallow, both $\\lambda$ and $\\partial_x^2p$ fall and the ratio increases, but only at vanishing density: it reaches %.0f at $\\eta=%.3f$ and "
           "$\\theta=0$, and stays below %.1f once $\\theta\\ge0.1\\,\\theta_{\\rm deg}$, the densities at which the decay is triggered. Particle dark matter "
           "would need a ratio above $1/v\\approx10^3$. The coincidence of the dark-matter and dark-energy densities, which motivates a dilution trigger, is "
           "thus what makes particle dark matter fail the criterion."
@@ -285,7 +285,7 @@ add(("fig", "fig2_granularity.png", "Fig. 2. (a) Conditions for the field to fee
             "band). (b) Expected number of bubbles in the past light cone of a region whose density is a fraction $1+\\delta$ of the mean, for three mean "
             "couplings today ($\\eta=0.30$, $q=1$, $B_0=%.0f$): the emptiest regions decide whether the past is protected." % WJ["base"]["B0"], 6.6))
 add(("h2", "3.5 Spatially resolved tests"))
-add(("p", "Two calculations replace the criterion by a resolved treatment (granular_field.py). The first solves the static field equation "
+add(("p", "Two calculations replace the criterion with a resolved treatment (granular_field.py). The first solves the static field equation "
           "$\\nabla^2x=\\partial_xp_0(x)+\\theta_s(\\mathbf r)(x-1)$ in a spherical Wigner--Seitz cell around one source, with the source spread over a "
           "sphere small compared with the cell and normalized so that the cell average of $\\theta_s$ is the mean coupling at the trigger. For cells smaller "
           "than the Compton length the field is uniform at the mean-field minimum; for a cell radius $R_c=%.1f/m_\\varphi$ the field lies within 1%% of the "
@@ -295,26 +295,26 @@ add(("p", "Two calculations replace the criterion by a resolved treatment (granu
              CELL[30.0]["Rc_times_mphi"])))
 add(("p", "The second computes the decay rate in a granular background. A static source at distance $r_p$ from the centre of the zero-density bounce "
           "adds to the Euclidean action, at first order in its coupling $q$ (the coupling carried by one particle), $\\Delta B=(q/\\lambda)I(r_p)$ with "
-          "$I(r_p)=\\int d\\tau\\,\\frac12[(x_b-1)^2-(x_h-1)^2]$ along its worldline. For sources placed at random with number density $n$,"))
+          "$I(r_p)=\\int d\\tau\\,\\frac12[(x_b-1)^2-(x_h-1)^2]$ along its world line. For sources placed at random with number density $n$,"))
 add(("eq", r"\frac{\Gamma}{\Gamma_0}=\Big\langle e^{-\sum_i\Delta B_i}\Big\rangle=\exp\!\Big[-n\int d^3r\,\big(1-e^{-qI(r)/\lambda}\big)\Big]"))
-add(("p", "For many weak sources this reduces to the first-order mean-field suppression $\\exp(-\\theta\\,\\partial_\\theta b/\\lambda)$, and the "
-          "derivative obtained in this way agrees with the numerical derivative of the bounce action to %.2f%%. For few strong sources it reduces to "
-          "$\\Gamma_0$ times the probability that the bounce region contains no source. At the trigger density the suppression falls to half of its "
+add(("p", "For many weak sources, this reduces to the first-order mean-field suppression $\\exp(-\\theta\\,\\partial_\\theta b/\\lambda)$, and the "
+          "derivative obtained in this way agrees with the numerical derivative of the bounce action to %.2f%%. For few strong sources, it reduces to "
+          "$\\Gamma_0$ times the probability that the bounce region contains no source. At the trigger density, the suppression decreases to half of its "
           "mean-field value for point sources of mass %.0f meV, and to fractions $%s$ and $%s$ of it for 1 MeV and 1 GeV particles (Fig. 10b). These are "
           "first-order results; the particles are treated as static over the time of the bounce, which holds for $v\\ll1$."
           % (100 * abs(GF["bounce"]["first_order_vs_numerical"]), GF["m_half_meV"],
              texsci(PEX["1 MeV"]["fraction_of_first_order_mean_field_suppression"], 0),
              texsci(PEX["1 GeV"]["fraction_of_first_order_mean_field_suppression"], 0))))
-add(("p", "For heavy particles the coupling of a single source is large, and the first-order treatment must be tested beyond first order. This was "
+add(("p", "For heavy particles, the coupling of a single source is large, and the first-order treatment must be tested beyond first order. This was "
           "done with a nonperturbative bounce (nonpert_bounce.py). With a source on the axis of the bubble, the worst case, the field depends only on "
           "Euclidean time and on the distance from the source, and the bounce is found as the maximum, over a collective coordinate (the four-volume on the "
           "true-vacuum side of the barrier), of the constrained minimum of the action, so that the bubble is free to deform around the source. Without a "
-          "source the method reproduces the shooting action to %.1f%% (%.2f%% on the finest grid). The numbers below are on a grid of spacing 0.4. The "
-          "convergence tests (Table S12b) show that enlarging the box changes nothing and that the saturation in $q$ is present at every resolution: "
-          "between $q=10^3$ and $10^4$ the increase changes by %.1f%% on a grid of spacing 0.2 and by %.1f%% at 0.25. The saturated value itself depends "
+          "source, the method reproduces the shooting action to %.1f%% (%.2f%% on the finest grid). The numbers below are on a grid with a spacing 0.4. The "
+          "convergence tests (Table S12b) show that enlarging the box does not change the value and that the saturation in $q$ is present at every resolution: "
+          "between $q=10^3$ and $10^4$ the increase changes by %.1f%% on a grid with a spacing 0.2 and by %.1f%% at 0.25. The saturation value itself depends "
           "on how the source, one to three grid cells across, is represented: %.0f--%.0f for grid spacings 0.2--0.4 at $q=10^4$, and %.0f--%.0f at $q=10$. "
-          "It is not converged and is quoted only to show that a single source raises the action by a bounded amount, at most about %.0f%% of the "
-          "zero-density value and three to four orders of magnitude below the first-order estimate. The nonperturbative increase of the action is below the first-order estimate for "
+          "It does not converge and is quoted only to show that a single source increases the action by a bounded amount—at most about %.0f%% of the "
+          "zero-density value and three to four orders of magnitude below the first-order estimate. The nonperturbative increase in the action is below the first-order estimate for "
           "every coupling tested: their ratio is %.2f, %.2f, %.3f and %.4f for $q=1$, 10, 100 and $10^4$, because the field near the source saturates and "
           "the bubble deforms around it (Fig. 10c). The increase saturates at a value set by the size of the source, $\\Delta b=%.0f$, %.0f and %.0f for "
           "source radii 0.25, 0.5 and 1, and the static coupling of a source saturates in the same way, at $q_{\\rm eff}\\approx4\\pi r_s$ (within %.0f%% for "
@@ -335,10 +335,10 @@ md = lambda k: MSR[k]["db"]
 add(("p", "Several sources were treated with a three-dimensional bounce (multisource_bounce.py): a periodic row of discrete sources along a line, "
           "spacing $d$, coupling $q=%.0f$ and radius %.0f each, so that the field depends on Euclidean time, the position along the row and the distance from "
           "it, against the same coupling per unit length smeared uniformly along the line. The bubble is free to deform and to sit between the sources. "
-          "Without sources the three-dimensional code gives $b=%.1f$ against %.1f from shooting. For $d=8$, 12 and 20 the discrete row raises the action by "
+          "Without sources, the three-dimensional code gives $b=%.1f$ against %.1f from shooting. For $d=8$, 12 and 20 the discrete row increases the action by "
           "%.1f, %.1f and %.1f, the smeared line by %.1f, %.1f and %.1f: the same mean coupling suppresses the decay far less when it is concentrated in "
           "discrete sources, and once the spacing exceeds the size of the bubble the discrete row hardly matters while the smeared line still does. "
-          "This supports the first-order conclusion beyond first order: discrete sources suppress the decay much less than a homogeneous mean-field "
+          "This finding supports the first-order conclusion beyond first order: discrete sources suppress the decay much less than a homogeneous mean-field "
           "treatment predicts. What is established is a constraint within this coupling and vacuum model, for a single source and for a row of sources; a "
           "fully three-dimensional bounce among many sources at random positions is not computed, and general many-body configurations remain open."
           % (MSJ["q"], MSJ["rs"], MSJ["b0_3d"], MSJ["b0_shooting"], md(("discrete", 8.0)), md(("discrete", 12.0)), md(("discrete", 20.0)),
@@ -346,7 +346,7 @@ add(("p", "Several sources were treated with a three-dimensional bounce (multiso
 add(("fig", "fig3_resolved_granularity.png", "Fig. 10. (a) Static field in a Wigner--Seitz cell around one dark-matter source at the trigger coupling, "
             "for cells from 0.2 to 65 Compton lengths: small cells reproduce the mean-field vacuum, large cells the zero-density vacuum away from the "
             "source. (b) Suppression of the decay rate by randomly placed point sources, relative to the first-order mean-field suppression, against the "
-            "particle mass at the trigger density (first order); shaded, the wave-dark-matter window of Section 3.3 and the particle regime. (c) Increase of the "
+            "particle mass at the trigger density (first order); shaded, the wave-dark-matter window of Section 3.3 and the particle regime. (c) Increase in the "
             "bounce action from a source at the bubble centre: nonperturbative bounce against first order, source radius 0.5 (triangles: radii 0.25 and 1).", 6.9))
 
 # ============================================================================================ 4 nucleation
@@ -356,9 +356,9 @@ add(("p", "Where the mean field applies, the O(4)-symmetric bounce solves, in un
 add(("eq", r"x''+\frac{3}{r}x'=\partial_xp(x;\eta,\theta),\qquad x'(0)=0,\qquad x(\infty)=x_h,\qquad b(\eta,\theta)=2\pi^2\int_0^\infty r^3\left[\frac{x'^2}{2}+p(x)-p(x_h)\right]dr"))
 add(("p", "and the action is $B=b/\\lambda$ \\cite{Coleman,CC}. Gravity enters only through $g=f^2/M_{\\rm Pl}^2$, of order $10^{-60}$ at the dark-energy "
           "scale, so the flat-space bounce is exact for all practical purposes \\cite{CDL,Parke}; Section 6 confirms that the wall's own gravity is negligible. "
-          "The bounce is found by overshoot and undershoot on the central value with an eighth-order Runge--Kutta integrator; where the central value lies "
-          "within $10^{-5}$ of the true minimum (the thin-wall regime) shooting becomes exponentially sensitive and collocation on the boundary-value problem "
-          "is used instead (vacuum_wall.py). At $\\theta=0$ the actions reproduce an independent table to $%s$, and where both methods apply they agree to the "
+          "The bounce is found by overshoot and undershoot on the central value with an eighth-order Runge--Kutta integrator, where the central value lies "
+          "within $10^{-5}$ of the true minimum (the thin-wall regime) shooting becomes exponentially sensitive, and collocation on the boundary-value problem "
+          "is used instead (vacuum_wall.py). At $\\theta=0$ the actions reproduce an independent table to $%s$, and where both methods apply, they agree to the "
           "tolerance of the collocation."
           % texsci(max(abs(v["b"] / v["table"] - 1) for v in DBJ["check_theta0"].values()) + 1e-16, 0)))
 add(("h2", "4.2 The wall"))
@@ -366,13 +366,13 @@ add(("p", "The interface follows from the field equations rather than being impo
           "the first integral $z(x)=\\int dx/\\sqrt{2(p-p_{\\rm min})}$, tension $\\sigma=\\int\\sqrt{2(p-p_{\\rm min})}\\,dx=%.3f\\,\\sqrt\\lambda f^3$ and 10--90%% "
           "thickness $%.1f/(\\sqrt\\lambda f)$ for $\\eta=0.30$; the symmetric case $\\eta=\\theta=0$ reproduces $\\sigma=2/3$ and $x=\\tanh(z/2)$. Below the "
           "degeneracy density a static planar wall does not exist, since the energy difference accelerates it, and the wall is read from the bounce: its tension "
-          "$\\sigma_b=\\int x'^2dr$ and its thickness change little with density, while the radius grows from $%.1f$ to $%.1f$ and the action from $b=%.0f$ to "
-          "$%.0f$ between $\\theta=0$ and $0.6\\,\\theta_{\\rm deg}$ (Table 2, Fig. 3a,b). The thin-wall action"
+          "$\\sigma_b=\\int x'^2dr$ and its thickness change little with density, whereas the radius increases from $%.1f$ to $%.1f$ and the action from $b=%.0f$ to "
+          "$%.0f$ between $\\theta=0$ and $0.6\\,\\theta_{\\rm deg}$ (Table 2, Fig. 3a,b). Thin-wall action"
           % (deg["sigma"], deg["thickness"], r0["R_w"], r6["R_w"], r0["b"], r6["b"])))
 add(("eq", r"B_{\rm tw}=\frac{27\pi^2\sigma^4}{2\,\Delta V^3},\qquad \sigma=\int_{x_t}^{x_h}\sqrt{2\,[p(x)-p_{\rm lin}(x)]}\,dx"))
 add(("p", "with $p_{\\rm lin}$ the straight line through the two minima, which removes the energy difference from the tension, is recovered within 1%% from "
-          "$0.6\\,\\theta_{\\rm deg}$ upwards for $\\eta=0.20$ and 0.30, and overestimates the thick-wall bounce near zero density ($b/B_{\\rm tw}=%.2f$ at "
-          "$\\theta=0$ for $\\eta=0.30$). The density dependence of the action is therefore dominated by $\\Delta V(\\theta)$, which falls linearly to zero at "
+          "$0.6\\,\\theta_{\\rm deg}$ upward for $\\eta=0.20$ and 0.30, and overestimates the thick-wall bounce near zero density ($b/B_{\\rm tw}=%.2f$ at "
+          "$\\theta=0$ for $\\eta=0.30$). The density dependence of the action is therefore dominated by $\\Delta V(\\theta)$, which decreases linearly to zero at "
           "$\\theta_{\\rm deg}$, while the tension is nearly constant." % r0["b_over_B_tw"]))
 rows2 = [["%.2f" % r["theta_over_deg"], "%.3f" % r["dV"], "%.0f" % r["b"], "%.2f" % r["b_over_B_tw"], "%.1f" % r["R_w"], "%.2f" % r["thickness"],
           "%.3f" % r["sigma_bounce"], r["method"]] for r in TB if abs(r["theta_over_deg"] * 10 - round(r["theta_over_deg"] * 10)) < 1e-6]
@@ -387,19 +387,19 @@ add(("p", "We normalize to the observed universe: the false vacuum carries the o
           "in the observed $\\Lambda$CDM history the four-volume of the past light cone is $V_4=%.4f\\,H_\\Lambda^{-4}$, %.0f times smaller than the Euclidean "
           "four-sphere often used as a shortcut, so that survival requires only $\\Gamma/H_\\Lambda^4\\lesssim%.0f$ for a constant rate \\cite{GW,TWW}. With the "
           "coupling the rate in the past was suppressed by the larger density, and the survival integral is evaluated with the density history "
-          "$\\theta=\\theta_0(1+z)^3$. In the future the rate rises as the matter dilutes (Fig. 3c), and the transition completes, in the sense that bubbles "
+          "$\\theta=\\theta_0(1+z)^3$. In the future, the rate increases as the matter dilutes (Fig. 3c), and the transition completes, in the sense that bubbles "
           "percolate, once $\\Gamma/H^4>9/4\\pi$ \\cite{GW}. The prefactor is the least certain input: a full one-loop determinant \\cite{DM} could "
-          "differ from the estimate by a factor comparable to $(B/2\\pi)^2$ itself, $e^{%.1f}$ at the trigger. Because the rate grows at $\\beta=%.0f\\,H$ "
+          "differ from the estimate by a factor comparable to $(B/2\\pi)^2$ itself, $e^{%.1f}$ at the trigger. Because the rate increases at $\\beta=%.0f\\,H$ "
           "(Section 6), such a factor moves the completion by %.2f Hubble times, and it moves the boundary of the region with a protected past by the same "
           "%.1f units in $B_0$; the qualitative results do not depend on it."
           % (WJ["base"]["B0"], PS["f_meV"], PS["length_unit_mm"], SV["V4_HL4"], SV["ratio_euclid_to_lorentzian"], SV["gamma_over_hl4_max_95"],
              2 * np.log(TW["B"] / (2 * np.pi)), PC["beta_over_H"], 2 * np.log(TW["B"] / (2 * np.pi)) / PC["beta_over_H"], 2 * np.log(TW["B"] / (2 * np.pi)))))
 add(("p", "Because the field responds to the local density (Section 3.3), these statements hold region by region, with $\\theta_0$ the local value. For "
-          "a region with $\\theta_0=%.1f\\,\\theta_{\\rm deg}$, the baseline of this paper, the past light cone is clear and the transition completes at "
+          "a region with $\\theta_0=%.1f\\,\\theta_{\\rm deg}$, the baseline of this paper, the past light cone is clear, and the transition is complete at "
           "$a=%.2f$, when $\\theta=%.3f\\,\\theta_{\\rm deg}$ and $B=%.0f$; the nucleated bubble has radius %.2f mm, wall thickness %.2f mm and tension "
           "%.0f meV$^3$."
           % (F0_LOC, WJ["a_trigger"], TW["theta_over_deg"], TW["B"], TW["R_w_mm"], TW["thickness_mm"], TW["sigma_meV3"])))
-add(("h2", "4.4 The environment: voids first, haloes last"))
+add(("h2", "4.4 The environment: voids first, halos last"))
 add(("p", "The rate depends exponentially on the local density, so the emptiest regions decide both whether the past is protected and when the decay "
           "begins. The deepest cosmic voids have central densities of 10--20%% of the mean \\cite{SvdW04}. If a region with $1+\\delta$ times the mean "
           "density is followed through the whole past light cone with that contrast (conservative, since voids were less empty in the past), the past light "
@@ -411,13 +411,13 @@ add(("p", "The rate depends exponentially on the local density, so the emptiest 
           % (VOID[1.0]["min_f0_mean"], 100 * 0.2, 100 * 0.1, VOID[0.2]["min_f0_mean"], VOID[0.1]["min_f0_mean"],
              100 * max(k for k, v in VOID.items() if not v["baseline_past_clear"]), 100 * DV_, F0_MEAN)))
 add(("p", "With that mean, the held vacuum is still the true vacuum wherever $1+\\delta>\\theta_{\\rm deg}/\\bar\\theta(a)$: at the trigger this is any region "
-          "denser than %.2f times the mean, and the threshold rises as $a^3$. A bubble nucleated in a void expands through all connected regions in which the "
+          "denser than %.2f times the mean, and the threshold increases as $a^3$. A bubble nucleated in a void expands through all connected regions in which the "
           "held vacuum is metastable, and its wall stalls where the local density reaches the degeneracy value, because the driving pressure, proportional to "
           "$\\Delta V_{\\rm eff}$, vanishes there and changes sign beyond. The transition therefore advances from the voids into sheets and filaments as the "
-          "universe expands, following the contour $\\theta_{\\rm loc}=\\theta_{\\rm deg}$, while virialized haloes, whose density does not dilute, keep the "
+          "universe expands, following the contour $\\theta_{\\rm loc}=\\theta_{\\rm deg}$, while virialized halos, whose density does not dilute, keep the "
           "held vacuum indefinitely: a galactic halo at about two hundred times the mean density has $\\theta\\approx%.0f\\,\\theta_{\\rm deg}$, far above "
           "$\\theta_{\\rm high}=%.2f\\,\\theta_{\\rm deg}$, where only the held minimum exists. The dark energy measured inside galaxies is therefore unchanged "
-          "by the transition, and the haloes become islands of the held vacuum bounded by walls whose tension energy is negligible (%s kg per square metre "
+          "by the transition, and the halos become islands of the held vacuum bounded by walls whose tension energy is negligible (%s kg per square meter "
           "for the baseline tension). Separate voids are separated by such walls at the trigger and must each nucleate a bubble; since the rate grows at "
           "$\\beta=%.0f\\,H$ (Section 6), a void of comoving radius 5--50 Mpc does so within %.3f--%.3f Hubble times of the global completion criterion."
           % (THR_T, 200 * F0_MEAN, GRJ["environment"]["theta_high_over_deg"],
@@ -427,17 +427,17 @@ fr = lambda a: a ** 3 / F0_MEAN
 add(("p", "The advance of the transition can be read off the threshold $1+\\delta_*(a)=a^3\\theta_{\\rm deg}/\\bar\\theta_0$: %.2f at the trigger, %.1f at "
           "$a=2$, %.1f at $a=3$ and %.0f at $a=5$. Sheets and the outskirts of filaments, a few times denser than the mean, are swept within a Hubble time of the "
           "trigger; the cores of filaments, ten or more times the mean, only later; virialized structures never, because their density does not fall. Two "
-          "features distinguish this from vacuum decay seeded by inhomogeneities elsewhere in the literature. Compact objects such as black holes catalyse "
+          "features distinguish this from vacuum decay seeded by inhomogeneities elsewhere in the literature. Compact objects such as black holes catalyze "
           "the decay of a metastable vacuum by lowering the action in their vicinity \\cite{GMW14,BGM15}; here the seed is the absence of matter, and the "
-          "decay is suppressed, not catalysed, where matter has collapsed. And the wall does not need to overcome the denser regions: it stops where the "
+          "decay is suppressed, not catalyzed, where matter has collapsed. The wall does not need to overcome the denser regions: it stops where the "
           "held vacuum becomes the true vacuum, so that the outcome of the transition is a map of the cosmic density field at the time of the trigger."
           % (fr(WJ["a_trigger"]), fr(2.0), fr(3.0), fr(5.0))))
 add(("p", "The environment yields a quantitative relation. Because the field responds to the local density and the trigger depends on the coupling only "
           "through $\\theta_0a^{-3}$, a region whose density is a fraction $1+\\delta$ of the mean completes its transition at "
           "$a_{\\rm tr}(\\delta)=a_{\\rm tr}(0)\\,(1+\\delta)^{1/3}$ while its contrast is frozen. For a mean coupling $\\bar\\theta_0=%.0f\\,\\theta_{\\rm deg}$ the "
-          "computed values are $a_{\\rm tr}=%.2f$, %.2f, %.2f and %.2f for $1+\\delta=0.1$, 0.3, 1 and 2 (viability_extended.py), and a change of the one-loop "
+          "computed values are $a_{\\rm tr}=%.2f$, %.2f, %.2f and %.2f for $1+\\delta=0.1$, 0.3, 1 and 2 (viability_extended.py), and a change in the one-loop "
           "prefactor by $(B/2\\pi)^2$ moves them by at most %.0f%%. The order of the transition across the cosmic web, voids first and in the order of their "
-          "emptiness, is a prediction of the mechanism. It is not observable today, because a protected past means that no transition has happened inside "
+          "emptiness, is a prediction of the mechanism. It is not observable today, because a protected past means that no transition has occurred inside "
           "our past light cone; what is observable now is listed in Section 10."
           % (F0_MEAN, PRED[(3.0, 0.1)]["central"], PRED[(3.0, 0.3)]["central"], PRED[(3.0, 1.0)]["central"], PRED[(3.0, 2.0)]["central"], 100 * PREF)))
 EV = {round(r["one_plus_delta_today"], 2): r for r in EEV["rows"]}
@@ -445,7 +445,7 @@ add(("p", "The relation assumes a frozen contrast, but voids keep emptying. With
           "nonlinear evolution of a spherical void, $1+\\delta=(1-\\delta_L/\\nu)^{-\\nu}$ with $\\nu=%.1f$ (env_evolution.py), regions at 10--50%% of the mean "
           "density today complete their transition %.0f--%.0f%% earlier in scale factor than with a frozen contrast, and a region at twice the mean %.0f%% later; "
           "the order is preserved and the relation steepens slightly. The growth of structure after the trigger is modest because the expansion is then "
-          "dominated by the vacuum energy (the growth factor rises by %.0f%% between $a=1$ and 2)."
+          "dominated by the vacuum energy (the growth factor increases by %.0f%% between $a=1$ and 2)."
           % (EEV["nu"], 100 * min(abs(EV[g]["shift"]) for g in (0.1, 0.2, 0.3, 0.5)), 100 * max(abs(EV[g]["shift"]) for g in (0.1, 0.2, 0.3, 0.5)),
              100 * EV[2.0]["shift"], 100 * ([d["D"] for d in EEV["D_at"] if d["a"] == 2.0][0] - 1))))
 add(("fig", "fig3_interface_properties.png", "Fig. 3. (a) Wall tension (solid) and thickness/10 (dashed) of the O(4) bounce against density for three tilts. "
@@ -466,39 +466,39 @@ add(("p", "with a transmitted wave $e^{ik_+z}$ on the false-vacuum side, integra
           "values agree with it to %s, including the reflectionless coupling $g^2/\\lambda=1/2$, and $T+R=1$ holds to %s (Fig. 4b)."
           % (sci(TJ["max_PT_error"], 0), sci(TJ["max_unitarity_error"], 0))))
 add(("p", "Through the wall at the trigger the interior is heavier for every coupling ($m_{\\rm in}/m_{\\rm out}=%.2f$, since $|x_t|>|x_h|$). Modes below the "
-          "interior threshold are reflected, and above it $T$ exceeds 0.5 within $0.1\\sqrt\\lambda f$ of the threshold for every coupling tested (Fig. 4a). "
+          "interior threshold are reflected, and those above it $T$ exceeds 0.5 within $0.1\\sqrt\\lambda f$ of the threshold for every coupling tested (Fig. 4a). "
           "The interface is selective, but kinematically: it filters by mass, as any step does, with little additional reflection from its shape. Photons, "
           "neutrinos and baryons do not couple to $\\varphi$ and cross unchanged. A thermal bath of test scalars exerts on a static wall a reflected momentum "
           "flux that is at most %s of the driving pressure at temperatures up to the wall scale, and in the ultrarelativistic limit at most "
-          "$\\Delta m^2T^2/24$ per degree of freedom \\cite{BM09}; at the CMB temperature of the trigger epoch this is below %s of the driving pressure."
+          "$\\Delta m^2T^2/24$ per degree of freedom \\cite{BM09}; at the CMB temperature of the trigger epoch, this value is below %s of the driving pressure."
           % (g1["m_in"] / g1["m_out"], sci(max(r["P_static_over_dV"] for r in TJ["pressure"] if r["T"] <= 0.2), 0), sci(0.31 * TJ["T_cmb_at_trigger_units"] ** 2, 0))))
-add(("p", "For the coupled dark matter the mass ratio across the wall is $A(x_t)/A(x_h)=%.2f$, far larger than its kinetic energy, so a slow wall would "
-          "reflect all of it, as at the filtering transitions of \\cite{BKL20}. The wall is not slow. Its driving pressure exceeds the largest pressure the "
+add(("p", "For the coupled dark matter, the mass ratio across the wall is $A(x_t)/A(x_h)=%.2f$, far greater than its kinetic energy; thus, a slow wall would "
+          "reflect all of it, as at the filtering transitions of \\cite{BKL20}. The wall is not slow. Its driving pressure exceeds the maximum pressure the "
           "dark matter can exert, $\\rho_*\\Delta A$ (the Boedeker--Moore limit for quanta that are transmitted at high Lorentz factor \\cite{BM09}), by a "
-          "factor %.0f, so it runs away; dark matter at rest crosses once the wall's Lorentz factor exceeds $A(x_t)/A(x_h)$, which happens within %.2f mm of the "
+          "factor %.0f, so it runs away; dark matter at rest crosses once the wall's Lorentz factor exceeds $A(x_t)/A(x_h)$, which occurs within %.2f mm of the "
           "nucleation point. The fraction of the dark matter swept by the wall before it becomes transparent is $(\\gamma_{\\rm th}R_0/R_{\\rm coll})^3=%s$. "
           "The interface is therefore transparent to the dark matter for all practical purposes, and the transitioned region inherits the dark matter of its "
           "surroundings with the heavier mass of the true vacuum."
           % (DM["A_true"] / DM["A_false"], 1.0 / DM["P_dm_max_over_dV_vac"], DM["R_threshold_mm"], texsci(DM["filtered_fraction"], 0))))
 rA = DM["A_true"] / DM["A_false"]
 dep_ad, dep_su = DM["A_true"] - DM["A_false"], DM["A_false"] * (1 + rA * rA) / 2 - DM["A_false"]
-add(("p", "For wave dark matter the crossing was simulated directly (wave_wall_1d.py). A planar wall, started at rest as a kink, accelerates through a "
+add(("p", "For wave dark matter, the crossing was simulated directly (wave_wall_1d.py). A planar wall, starting at rest as a kink, accelerates through a "
           "homogeneous oscillating dark-matter field whose mass is $mA(x)$, with the full backreaction of the dark matter on the scalar and nothing "
           "prescribed about the crossing (Fig. 11). The wall follows hyperbolic motion, and a fit of it gives the Lorentz factor; at the end of the run "
           "this is %.1f%% and %.1f%% below that of a run with the static mean-field term for $m_{\\rm dm}=10m_\\varphi$ and $3m_\\varphi$, a difference that "
           "changes by %.1f%% when the grid spacing is doubled, while the wall position changes by %.1f%%. The energy given to the dark matter per unit length swept is %.2f times its initial density (%.2f for "
           "$3m_\\varphi$), close to the sudden-crossing value $(1+r^2)/2=%.2f$, with $r=A(x_t)/A(x_h)=%.2f$, and well above the adiabatic value $r$: once the "
-          "wall is relativistic the crossing is sudden, and the field keeps its amplitude and velocity rather than its number of quanta. The dark matter is "
+          "wall is relativistic, the crossing is sudden, and the field maintains its amplitude and velocity rather than its number of quanta. The dark matter is "
           "not left at rest. Quanta that cross a relativistic wall into the heavier vacuum leave it with momentum $m(r^2-1)/2$ in the frame of the "
           "background and velocity $(r^2-1)/(r^2+1)=%.2f$; the simulated mean velocity of the dark matter behind the wall is %.2f, and the dark matter forms "
           "a shell that trails the wall with its energy density raised by $1/(1-v)$ (%.0f against %.1f predicted). The energy taken from the wall is %.2f of "
-          "its driving pressure, so within the friction mechanisms considered here (Table 3) the wall still runs away. In the transitioned region the dark matter carries %.0f%% more quanta than the adiabatic "
-          "estimate and moves outward until the shells of neighbouring bubbles collide, after which its momentum redshifts away. Table S8 lists the "
+          "its driving pressure, so within the friction mechanisms considered here (Table 3) the wall still runs away. In the transitioned region, the dark matter carries %.0f%% more quanta than the adiabatic "
+          "estimate and moves outward until the shells of neighboring bubbles collide, after which its momentum redshifts away. Table S8 lists the "
           "diagnostics at four resolutions and two box sizes. The arrival time of the wall at a fixed position changes by %s between the two finest "
           "resolutions, the Lorentz factor relative to the mean-field run by %.1f%%, the deposited energy by %.1f%%, the velocity of the dark matter by "
           "%.2f%% and the shell compression by %.0f%%; the absolute fitted Lorentz factor changes by %.0f%%, because a wall contracted to a few grid cells is "
-          "under-resolved, which is why only ratios to the mean-field run are used. The larger box gives identical results, as it must, since nothing from "
-          "its far end can reach the wall during the run. The simulation is planar and in flat space; it does not establish the same behaviour for a "
+          "underresolved, which is why only ratios to the mean-field run are used. The larger box gives identical results, as it must, since nothing from "
+          "its far end can reach the wall during the run. The simulation is planar and in flat space; it does not establish the same behavior for a "
           "spherical wall in an expanding universe, where the wall's Lorentz factor is far larger and the crossing correspondingly more sudden."
           % (100 * abs(W10["gamma_rel_diff_vs_mean_field_end"]), 100 * abs(W3["gamma_rel_diff_vs_mean_field_end"]),
              100 * abs(WWR[("wave", 10.0, 0.01)]["gamma_end_fit"] / WWR[("mean field", 10.0, 0.01)]["gamma_end_fit"] - 1.0
@@ -511,7 +511,7 @@ add(("p", "For wave dark matter the crossing was simulated directly (wave_wall_1
              100 * abs(CONV_F[-1]["deposit"] / CONV_F[-2]["deposit"] - 1), 100 * abs(CONV_F[-1]["v_dm"] / CONV_F[-2]["v_dm"] - 1),
              100 * abs(CONV_F[-1]["shell"] / CONV_F[-2]["shell"] - 1), 100 * abs(CONV_F[-1]["gamma_fit_end"] / CONV_F[-2]["gamma_fit_end"] - 1))))
 add(("fig", "fig4_selective_transmission.png", "Fig. 4. (a) Transmission of a test scalar through the wall at the trigger against momentum above the "
-            "interior threshold, for four couplings. (b) Validation on the symmetric kink: numerical transmission (dots) against the exact Poeschl--Teller "
+            "interior threshold, for four couplings. (b) Validation of the symmetric kink: numerical transmission (dots) against the exact Poeschl--Teller "
             "result (lines), including the reflectionless coupling $g^2/\\lambda=1/2$.", 6.3))
 add(("fig", "fig6_wave_wall.png", "Fig. 11. A planar wall running through wave dark matter (1+1 dimensions, backreaction included). (a) Lorentz factor of "
             "the wall without dark matter, with the static mean-field term, and with wave dark matter of mass $10m_\\varphi$ and $3m_\\varphi$. (b) "
@@ -528,22 +528,22 @@ add(("p", "(bubble_gravity.py). From $R_0=3\\sigma/\\Delta V$ (%.2f mm) to the H
           "collide or stall at the boundary of a denser region."
           % (GJ["wall"]["R0_mm"], sci(GJ["wall"]["Gamma_at_RH"], 1), sci(GJ["wall"]["max_grav"], 0))))
 add(("p", "The completion of the transition in a connected region is computed from its rate history (bubble_handoff.py): the false-vacuum fraction "
-          "$f=e^{-I}$, $I=\\frac{4\\pi}{3}\\int\\Gamma a^3r^3dt$ with $r$ the comoving radius of a bubble nucleated at $t$ \\cite{GW,TWW}, falls to one half at "
+          "$f=e^{-I}$, $I=\\frac{4\\pi}{3}\\int\\Gamma a^3r^3dt$ with $r$ the comoving radius of a bubble nucleated at $t$ \\cite{GW,TWW}, decreases to one half at "
           "$a=%.3f$ and to 1%% at $a=%.3f$ (Fig. 6a). The rate grows at $\\beta=d\\ln\\Gamma/dt=%.0f\\,H$, so the transition is completed in %.3f Hubble times and "
-          "the bubbles collide at a mean radius $R_{\\rm coll}=(8\\pi)^{1/3}/\\beta=%.4f/H$, comparable to the size of large voids. At collision the walls "
-          "have Lorentz factors of order %s."
+          "the bubbles collide at a mean radius $R_{\\rm coll}=(8\\pi)^{1/3}/\\beta=%.4f/H$, comparable to the size of large voids. During a collision, the walls "
+          "have Lorentz factors on the order of %s."
           % (PC["a_half"], PC["a_one_percent"], PC["beta_over_H"], PC["completion_duration_over_hubble_time"], PC["R_coll_times_H"],
              sci(WB["gamma_at_collision"], 0))))
 gmin = min(r["gamma_terminal"] for r in WB["gauge_nlo_terminal_gamma"] if r["T_meV"] < 1.0 and r["g"] <= 1.0)
 add(("p", "The junction treatment omits several effects, which are bounded instead (Table 3). The Lorentz-contracted thickness of the wall is %s of its "
           "radius, so the thin-wall description is excellent once the wall has grown. The pressure of the dark matter is at most %.2f of the drive. A dark gauge "
-          "boson acquiring mass from $\\varphi$ would add a pressure that grows with the Lorentz factor \\cite{BM17} and stop the runaway; for couplings "
+          "boson acquiring mass from $\\varphi$ would add a pressure that increases with the Lorentz factor \\cite{BM17} and stop the runaway; for couplings "
           "$g\\le1$ and any bath colder than 1 meV the terminal Lorentz factor is at least %.0f, still above the threshold %.1f at which the dark matter "
           "crosses, so the transparency of Section 5 is unchanged. Gravitational waves from the collisions carry at most a fraction $\\sim%s$ of the wall "
           "energy, suppressed by $(H/\\beta)^2$, and since $R_{\\rm coll}H\\approx%.3f$ no region of Hubble size is overdense enough to form black holes."
           % (sci(WB["contracted_thickness_over_radius"], 0), WB["dm_pressure_over_vacuum_drive"], gmin, WB["gamma_threshold_dm"],
              texsci(WB["gw_fraction_bound"], 0), WB["pbh_scale_ratio"])))
-add(("p", "None of these signals is observable today. The trigger lies in the future, at $a\\approx%.1f$ for the baseline, and a protected past means "
+add(("p", "None of these signals are observable today. The trigger lies in the future, at $a\\approx%.1f$ for the baseline, and a protected past means "
           "precisely that no bubble has nucleated within our past light cone; the imprints of bubble collisions on the microwave background that have been "
           "studied for transitions in the early universe \\cite{Kleban,AJ} therefore do not arise. What is observable now is indirect: the dark energy is "
           "exactly $w=-1$ while the vacuum is held, and the dark matter must be of the kind specified in Section 3."
@@ -583,21 +583,21 @@ add(("p", "A wall says nothing by itself about the cosmology inside it; the inte
           "baryons, dark matter of field-dependent mass $A(x)$ and the scalar in one of its minima: the scalar mass, of order meV, exceeds $H$ by thirty orders "
           "of magnitude, so the field follows its minimum adiabatically, and the stress-energy is $\\rho=\\rho_r+\\rho_b+\\rho_*+U$, "
           "$\\rho+P=\\frac43\\rho_r+\\rho_b+\\rho_*A(x)$, with $U(x,\\theta)$ the vacuum energy including the coupling energy $\\rho_*(A-1)$. The junction fixes "
-          "the initial data: the fluid inside keeps the Hubble rate of the parent at nucleation while its density drops by $\\Delta V_{\\rm eff}$, so an isolated "
+          "the initial data: the fluid inside maintains the Hubble rate of the parent at nucleation while its density decreases by $\\Delta V_{\\rm eff}$, so an isolated "
           "Hubble-scale bubble encloses an open region with $K/a^2=\\Delta V_{\\rm eff}/3$, and a completed transition leaves a flat region whose wall energy is "
           "released at the collisions. Events (nucleation, turnaround, restoration) are found as roots in $\\ln a$ with $H$ from the constraint, so the "
           "constraint holds exactly between events; an independent integration as an initial-value problem reproduces the turnaround and the restoration to "
           "%s in time with a constraint residual of %s."
           % (sci(abs(RP["restoration_time_ivp"] - RP["restoration_time_root"]) / RP["restoration_time_root"], 0), sci(RP["constraint_residual_ivp"], 0))))
-add(("p", "In the environmental picture of Section 4.4 the transitioned volume is a network of voids and, later, sheets and filaments, which together fill "
-          "most of space, while the haloes keep the held vacuum. Its volume-averaged vacuum energy is negative once it fills most of space, and a region in "
+add(("p", "In the environmental picture of Section 4.4, the transitioned volume is a network of voids and, later, sheets and filaments, which together fill "
+          "most of the space, while the halos keep the held vacuum. Its volume-averaged vacuum energy is negative once it fills most of the space, and a region in "
           "which the transition is complete holds the negative true vacuum, turns around at %.2f times the scale factor at nucleation and contracts. When the "
           "dark-matter density in the contraction reaches $\\theta_{\\rm high}$ the true minimum disappears and the field returns to the matter-held minimum, "
           "releasing $%.2f\\,V_f$; the matter term restores the held vacuum, a direct consequence of the density dependence. This restoration needs "
           "dissipation: undamped, the oscillation about the held minimum is an adiabatic invariant that returns to the same amplitude when the density falls "
           "back through $\\theta_{\\rm high}$. The inhomogeneous evolution of a universe with islands of the held vacuum is not computed here; the "
           "volume-averaged statement is that it recollapses. With the dark-matter energy of a sudden crossing (Section 5; region_sensitivity.py) the "
-          "turnaround moves from %.3f to %.3f times the nucleation scale factor and the restoration happens earlier in the contraction; part of that energy "
+          "turnaround moves from %.3f to %.3f times the nucleation scale factor and the restoration occurs earlier in the contraction; part of that energy "
           "is kinetic and redshifts away, so the two values bracket the evolution."
           % (tB["a_max_over_a_nuc"], rB["dE_released"] / VC, RSR["adiabatic"]["a_max_over_a_nuc"], RSR["sudden"]["a_max_over_a_nuc"])))
 add(("h2", "7.2 Isolated Hubble-scale bubbles develop trapped surfaces"))
@@ -605,7 +605,7 @@ add(("p", "A bubble that remains isolated on the Hubble scale, which happens whe
           "turns around (at %.2f times the nucleation scale factor), but its continuation is not part of the parent universe. Following the wall as a null ray "
           "in the open interior and comparing the Misner--Sharp mass inside it with that of the exterior false-vacuum universe at the same areal radius, the "
           "interior becomes a trapped region ($\\rho_{\\rm in}R^2/3>1$) at $t=%.2f/H_0$ and denser than the exterior at $t=%.2f/H_0$, both before its "
-          "restoration ($%.2f$) and before any bounce ($%.2f$) (Fig. 6b). Within the thin-wall junction model the interior then contains a trapped surface, "
+          "restoration ($%.2f$) and before any bounce ($%.2f$) (Fig. 6b). Within the thin-wall junction model, the interior then contains a trapped surface, "
           "an apparent horizon, and the junction requires $\\Gamma_+$ to change sign, as for the false-vacuum bubbles of \\cite{BGG,FG,FGG}. Whether a global "
           "event horizon forms, and hence a black hole, depends on the subsequent evolution, which is not computed. The trapping time does not depend on "
           "the exterior cosmology (it is unchanged for $\\Omega_\\Lambda\\pm0.02$ and with the coupling energy of the held vacuum in the exterior) and moves "
@@ -618,17 +618,17 @@ add(("fig", "fig6_handoff.png", "Fig. 6. (a) Fraction of space in the false vacu
             "criterion $\\Gamma/H^4=9/4\\pi$. (b) Isolated Hubble-scale bubble: density inside the wall and in the exterior, and the trapping parameter "
             "$\\rho_{\\rm in}R^2/3$, with the turnaround, restoration and bounce of the interior.", 6.4))
 add(("h2", "7.3 Energy and entropy closure, and why a continuation is not supported"))
-add(("p", "Every species crosses the wall, so the comoving entropy of the region is inherited, and it is raised when the wall energy is thermalized at "
+add(("p", "Every species crosses the wall, so the comoving entropy of the region is inherited, and it is increased when the wall energy is thermalized at "
           "the collisions (by a factor of about %.0f) and when the vacuum is restored (bubble_entropy.py); it never decreases. The interior bookkeeping "
           "$dE_{\\rm in}=F_E\\,dV+W_{\\rm wall}$, with the swept-in content $F_E=\\rho_+$ and the work $W_{\\rm wall}=-\\Delta V_{\\rm eff}dV$ handed to the "
           "wall, closes to round-off. The decay removes the cosmological horizon of the false vacuum, whose entropy ($%s$) exceeds that of the radiation in a "
           "Hubble volume ($%s$); this is the usual situation for decays out of de Sitter space, accounted for by the action itself."
           % (EJ["entropy"][B_P]["nucleation_jumps"][1], texsci(EJ["horizon"]["S_dS"], 1), texsci(EJ["horizon"]["S_radiation_Hubble_volume"], 1))))
-add(("p", "The collision products are not computed; their equation of state is bracketed: if they behave as radiation the region evolves exactly as with "
+add(("p", "The collision products are not computed; their equation of state is bracketed: if they behave as radiation, the region evolves exactly as with "
           "thermalized wall energy, and if they are massive scalar quanta ($w=0$) the turnaround moves from %.2f to %.2f times the nucleation scale factor. "
           "Whether the recollapsing region could be continued through a nonsingular bounce into a new cycle is a separate question. With an effective "
           "loop-quantum-cosmology bounce \\cite{APS06,AS11} the equations do repeat, self-similarly with growth $\\ln G=%.3f$ per cycle ($%.3f$ for $w=0$ "
-          "products), but only if the bounce returns the dark matter to the state that holds the vacuum in the next cycle. For a thermal relic a hot bounce "
+          "products), but only if the bounce returns the dark matter to the state that holds the vacuum in the next cycle. For a thermal relic, a hot bounce "
           "does that through freeze-out; for the wave dark matter that Section 3 requires it does not, because a meV-scale boson thermalized at a hot bounce is "
           "a hot relic, not a cold coherent condensate. The dark matter that allows the trigger is therefore not the dark matter that would allow a cyclic "
           "continuation, and the latter is not supported in this branch."
@@ -636,11 +636,11 @@ add(("p", "The collision products are not computed; their equation of state is b
 
 # ============================================================================================ 8
 add(("h1", "8. Parameter-space analysis and numerical controls"))
-add(("p", "Controls separate the contribution of each ingredient (bubble_to_cycle.py, granularity.py; Table 4). Without the coupling (D) there is no "
-          "density dependence, and a single transition that has neither already happened in our past light cone nor fails to complete requires $B_0$ in a "
+add(("p", "Controls separate the contribution of each ingredient (bubble_to_cycle.py, granularity.py; Table 4). Without the coupling (D), there is no "
+          "density dependence, and a single transition that has neither already occurred in our past light cone nor fails to complete requires $B_0$ in a "
           "window of width %.0f around %.0f. With the coupling but a granular source, particle dark matter or wave dark matter lighter than the field, the "
-          "rate is the zero-density rate, and the vacuum decays in the past. With the computed transmission (C) the region is identical to that with every "
-          "species transmitted (B) to %s: the selectivity of the wall changes nothing, and a hypothetical wall that keeps all dark matter out (C*) differs "
+          "rate is the zero-density rate, and the vacuum decays in the past. With the computed transmission (C), the region is identical to that with every "
+          "species transmitted (B) to %s: the selectivity of the wall changes nothing, and a hypothetical wall that keeps all the dark matter out (C*) differs "
           "only in the conditional continuation."
           % (DW[1] - DW[0], 0.5 * (DW[0] + DW[1]), sci(DM["filtered_fraction"], 0))))
 rows4 = [["D", "no matter coupling", "constant rate", "window $%.0f\\le B_0\\le%.0f$" % tuple(DW), "fine tuning"],
@@ -654,11 +654,11 @@ rows4 = [["D", "no matter coupling", "constant rate", "window $%.0f\\le B_0\\le%
 add(("table", "Table 4. Controls ($\\eta=0.30$, $q=1$, $B_0=%.0f$; voids at %.0f%% of the mean density)." % (WJ["base"]["B0"], 100 * DV_),
      ["Model", "Description", "Release", "Past light cone", "Outcome"], rows4, None))
 add(("p", "In the plane of $B_0$ and the local coupling today in the emptiest regions, the region in which the past light cone is clear and the transition "
-          "completes extends from $B_0=%.0f$ to $%.0f$ for suitable couplings and covers %.0f%% of the plane scanned (Fig. 7); above the upper end the vacuum "
-          "rate itself is too small for completion. A survey over stated ranges (viability_mc.py; %d draws, log-uniform $B_0\\in[50,1000]$, local "
+          "completes extends from $B_0=%.0f$ to $%.0f$ for suitable couplings and covers %.0f%% of the plane scanned (Fig. 7); above the upper end, the vacuum "
+          "rate itself is too low for completion. A survey over stated ranges (viability_mc.py; %d draws, log-uniform $B_0\\in[50,1000]$, local "
           "$\\theta_0/\\theta_{\\rm deg}\\in[10^{-3},10]$, uniform $q\\in[-1,3]$, $\\eta\\in\\{0.20,0.30,0.36\\}$) finds a clear past light cone in %.0f%% of draws, "
           "completion in %.0f%% and a negative true vacuum, needed for recollapse, in %.0f%%; the three hold together in %.0f%%. These fractions describe the "
-          "sample space of the model, not a probability for our universe, and they presuppose the wave dark matter of Section 3; for particle dark matter "
+          "sample space of the model, not a probability for our universe, and they presuppose the wave dark matter of Section 3; for particle dark matter, "
           "the fraction is zero."
           % (CJ["map"]["B0_range_viable"][0], CJ["map"]["B0_range_viable"][1], 100 * CJ["map"]["fraction_viable"], TM["n"],
              100 * TM["single"]["T1 past light cone clear"], 100 * TM["single"]["T2 completes"], 100 * TM["single"]["T3 recollapse"],
@@ -668,9 +668,9 @@ add(("p", "These fractions depend on the sampling distributions and do not yet i
           "sudden-crossing energy, and evaluates every condition in the emptiest regions. With broad distributions (log-uniform $B_0\\in[50,1000]$, local "
           "$\\theta_0/\\theta_{\\rm deg}\\in[10^{-3},10]$, $q\\in[-1,3]$, $1+\\delta_v\\in[0.05,0.5]$, $m_{\\rm dm}$ from 1 $\\mu$eV to 1 GeV) the background "
           "conditions hold in %.0f%% of draws, adding the mean-field condition ($5m_\\varphi\\le m_{\\rm dm}\\le m_{\\rm cl}$) leaves %.1f%%, and adding the "
-          "runaway leaves %.2f%%; with distributions concentrated on the region of interest ($B_0\\in[150,400]$, $q\\in[0.1,3]$, $m_{\\rm dm}$ from 1 meV "
+          "runaway leaves %.2f%%; with distributions concentrated in the region of interest ($B_0\\in[150,400]$, $q\\in[0.1,3]$, $m_{\\rm dm}$ from 1 meV "
           "to 1 eV) the fractions are %.0f%%, %.0f%% and %.0f%%. The joint fraction varies little with the depth of the emptiest regions (%.1f--%.1f%% across "
-          "the terciles of the broad set). The mean-field condition is the binding one; the aim is not a large fraction but a region that survives every "
+          "the terciles of the broad set). The mean-field condition is the binding condition; the aim is not a large fraction but a region that survives every "
           "condition, and it does (Table S9)."
           % (VEB["n"], 100 * VEB["joint_background"], 100 * VEB["joint_background_meanfield"], 100 * VEB["joint_all"], 100 * VEF["joint_background"],
              100 * VEF["joint_background_meanfield"], 100 * VEF["joint_all"], 100 * min(x["joint_all"] for x in VEB["joint_all_by_void_depth"]),
@@ -694,35 +694,35 @@ add(("fig", "fig7_viability_map.png", "Fig. 7. Outcome over the vacuum action $B
 
 # ============================================================================================ 9 neutrinos
 TT = NUJ["terrestrial"]
-add(("h1", "9. An optional neutrino--scalar coupling and the CMB"))
-add(("p", "The dark-matter-only model makes no prediction for neutrinos. If the scalar also coupled to neutrinos, a new hypothesis, the neutrino masses "
-          "would track the local field. As an illustrative benchmark consider a flavour-universal Dirac coupling $\\mathcal L=-y\\varphi\\bar\\nu\\nu$, which "
-          "requires an electroweak completion (for instance a higher-dimensional operator with the Higgs field and right-handed neutrinos) that is not "
+add(("h1", "9. Optional neutrino--scalar coupling and the CMB"))
+add(("p", "The dark-matter-only model does not predict neutrinos. If the scalar also coupled to neutrinos, a new hypothesis, the neutrino masses "
+          "would track the local field. As an illustrative benchmark, consider a flavor-universal Dirac coupling $\\mathcal L=-y\\varphi\\bar\\nu\\nu$, which "
+          "requires an electroweak completion (for instance, a higher-dimensional operator with the Higgs field and right-handed neutrinos) that is not "
           "specified here; the masses shift by $\\delta m_\\nu=yfx_{\\rm loc}$, with $x_{\\rm loc}$ the held minimum at the local dark-matter coupling "
           "(neutrino_coupling.py)."))
-add(("p", "For the homogeneous local benchmark and the flavour-universal coupling assumed here, terrestrial oscillation experiments would see none "
+add(("p", "For the homogeneous local benchmark and the flavor-universal coupling assumed here, terrestrial oscillation experiments would see none "
           "of it. The scalar couples to dark matter only, and at the dark-matter density of the solar "
-          "neighbourhood, about $%s$ times the cosmic mean, the field sits at $1-x=%s$. Along a 1300 km baseline such as that of DUNE \\cite{DUNE20}, and "
+          "neighborhood, about $%s$ times the cosmic mean, the field sits at $1-x=%s$. Along a 1300 km baseline such as that of DUNE \\cite{DUNE20}, and "
           "along the baselines of Hyper-Kamiokande \\cite{HK18}, the halo density changes by a relative $%s$ and the field by less than $10^{-15}$. The shift "
           "is then a constant addition to the mass matrix, absorbed into the measured masses and mixing, so that $\\Delta P_{\\alpha\\beta}(E)=0$ "
           "identically; an interface, across which a neutrino would accumulate a different oscillation phase, does not exist inside a protected past light "
-          "cone. This null result applies to the coupling considered; flavour-dependent couplings, or couplings to a field that varies on terrestrial "
+          "cone. This null result applies to the coupling considered; flavor-dependent couplings, or couplings to a field that varies on terrestrial "
           "scales, are not covered."
           % (texsci(NUE["solar neighbourhood"]["one_plus_delta"], 1), texsci(TT["one_minus_x_local"], 1), texsci(TT["relative_density_change_over_baseline"], 0))))
 add(("p", "The coupling would instead make the neutrino masses depend on environment and on time, as in mass-varying-neutrino models \\cite{FNW04}. "
-          "Relative to the solar neighbourhood the masses would be smaller by $%.2fy$ meV at the mean density and $%.2fy$ meV in the deepest voids today, and "
-          "the mean-density value would be larger by $%.2fy$ meV at recombination than today (Table 5). For a perturbative coupling these shifts are below a "
-          "meV, beneath the sensitivity of present cosmological and laboratory mass measurements; a larger coupling would need a separate assessment of "
+          "Relative to the solar neighborhood the masses would be smaller by $%.2fy$ meV at the mean density and $%.2fy$ meV in the deepest voids today, and "
+          "the mean-density value would be larger by $%.2fy$ meV at recombination than it is at present (Table 5). For a perturbative coupling, these shifts are below a "
+          "meV, beneath the sensitivity of the present cosmological and laboratory mass measurements; a larger coupling would require a separate assessment of "
           "neutrino self-interaction and free-streaming constraints, which is not attempted. Relic neutrinos also act back on the trigger, adding "
           "$n_\\nu m_\\nu(\\varphi)$ to the effective potential, a tilt $\\delta\\eta=%s\\,y$, so the trigger is unaffected for $y\\lesssim%.0f$ (a shift of 1%% "
-          "of $\\eta$). Inside a transitioned region the masses would shift by $%.1fy$ meV. Neutrino production in wall collisions and a neutrino-driven "
+          "of $\\eta$). Inside a transitioned region, the masses would shift by $%.1fy$ meV. Neutrino production in wall collisions and a neutrino-driven "
           "trigger are separate questions and are not addressed."
           % (abs(NUE["mean density"]["dm_nu_over_y_meV"]), abs(NUE["deepest voids (10% of mean)"]["dm_nu_over_y_meV"]),
              [r for r in NUJ["redshift_mean_density"] if r["z"] == 1100.0][0]["dm_nu_over_y_meV"], texsci(NUJ["backreaction"]["delta_eta_per_y"], 1),
              NUJ["backreaction"]["y_for_delta_eta_1pct_of_eta"], NUJ["after_transition"]["dm_nu_over_y_meV"])))
 wz = CMB["worst_in_window"]
 add(("p", "The cosmic microwave background constrains the coupling much more strongly than any of these effects could be measured. In the early "
-          "universe the dark-matter density was larger by $(1+z)^3$, and with it the mass of the scalar: $m_\\varphi\\approx%.0f$ eV at $z=10^3$ against a "
+          "universe, the dark-matter density was greater by $(1+z)^3$, and with it, the mass of the scalar: $m_\\varphi\\approx%.0f$ eV at $z=10^3$ against a "
           "neutrino temperature of %.2f eV. The scalar is then a heavy mediator for neutrino--neutrino scattering, with a contact cross-section "
           "$\\sigma\\sim y^4s/16\\pi m_\\varphi^4$, and since $m_\\varphi\\propto(1+z)^{3/2}$ grows faster than the temperature, the ratio of the scattering rate to "
           "the expansion rate rises toward late times. The CMB requires neutrinos to stream freely while the modes it measures enter the horizon "
@@ -731,42 +731,42 @@ add(("p", "The cosmic microwave background constrains the coupling much more str
           "and a comparison with CMB data through a Boltzmann code. Its assumptions hold over the window: the scalar is heavier than the momentum transfer "
           "at every redshift (Table S16), so the contact form applies, and the neutrinos are relativistic; below $z\\sim10^2$, where they become "
           "nonrelativistic, the estimate does not apply. The scalar is always at least %.0f times heavier than the neutrino temperature, so its thermal "
-          "production is expected to be strongly suppressed in the modelled regime, subject to initial conditions and other production channels. With "
+          "production is expected to be strongly suppressed in the modeled regime, subject to initial conditions and other production channels. With "
           "$y\\lesssim%s$ the environmental and redshift-dependent mass shifts of Table 5 are below $%s$ meV, so the optional "
           "coupling, within this bound, has no observable consequence. The CMB tests the scalar here only through this optional coupling; a computation of "
           "the full spectra with a Boltzmann code is not attempted."
           % (wz["m_phi_meV"] / 1e3, wz["T_nu_meV"] / 1e3, texsci(CMB["y_max_free_streaming"], 0), CMB["min_m_over_T"],
              texsci(CMB["y_max_free_streaming"], 0), texsci(CMB["max_mass_shift_meV_at_y_max"], 0))))
-rows5 = [[k, "%s" % (texsci(v["one_plus_delta"], 1).join("$$") if v["one_plus_delta"] > 1e3 else "%g" % v["one_plus_delta"]), "%.4f" % v["x_held"],
+rows5 = [[k.replace("neighbourhood", "neighborhood"), "%s" % (texsci(v["one_plus_delta"], 1).join("$$") if v["one_plus_delta"] > 1e3 else "%g" % v["one_plus_delta"]), "%.4f" % v["x_held"],
           "%.3f" % v["dm_nu_over_y_meV"]] for k, v in NUE.items()]
 rows5 += [["mean density at $z=%g$" % r["z"], "--", "%.4f" % r["x_held"], "%+.3f" % (r["dm_nu_over_y_meV"] + NUE["mean density"]["dm_nu_over_y_meV"])]
           for r in NUJ["redshift_mean_density"] if r["z"] in (1.0, 3.0, 1100.0)]
-add(("table", "Table 5. Optional neutrino coupling: the held minimum and the neutrino-mass shift per unit coupling relative to the solar neighbourhood "
+add(("table", "Table 5. Optional neutrino coupling: the held minimum and the neutrino-mass shift per unit coupling relative to the solar neighborhood "
               "($\\bar\\theta_0=%.0f\\,\\theta_{\\rm deg}$)." % F0_MEAN, ["Environment", "$1+\\delta$", "$x_{\\rm loc}$", "$\\delta m_\\nu/y$ (meV)"], rows5, None))
 
 # ============================================================================================ 10
 add(("h1", "10. Implications, limitations and conclusions"))
-add(("p", "A coupling of a scalar to dark matter centred on a false vacuum makes the stability of that vacuum a function of the dark-matter density, and "
-          "dilution turns the held vacuum from the true into a metastable one at $\\theta_{\\rm deg}=\\eta/2$. For a vacuum at the dark-energy scale this "
-          "mean-field statement holds only if the dark matter looks smooth to the field on a scale below a tenth of a millimetre and a time below a picosecond. "
+add(("p", "A coupling of a scalar to dark matter centered on a false vacuum makes the stability of that vacuum a function of the dark-matter density, and "
+          "dilution changes the held vacuum from the true vacuum to a metastable vacuum at $\\theta_{\\rm deg}=\\eta/2$. For a vacuum at the dark-energy scale this "
+          "mean-field statement holds only if the dark matter looks smooth to the field on a scale below a tenth of a millimeter and a time below a picosecond. "
           "In a spatially resolved treatment, confirmed beyond first order by a bounce that deforms around a source, particle dark matter does not, and with "
           "it the vacuum decays at its zero-density rate; the coincidence of the "
-          "dark-matter and dark-energy densities, which motivates a dilution trigger, is what makes it fail. Wave dark matter heavier than the field and still classical, roughly 3 meV to 0.25 eV, "
+          "dark-matter and dark-energy densities, which motivates a dilution trigger, is what makes it fail. Wave dark matter heavier than the field and still classical, approximately 3 meV to 0.25 eV, "
           "does, and then the decay is environmental. It begins in the emptiest voids, the past is protected only if the mean coupling today is close to the "
-          "degeneracy density, the transition advances from voids into sheets and filaments as the universe expands, and galactic haloes keep the held "
-          "vacuum. Within the voids the wall is a fraction of a millimetre thick, runs away, becomes transparent to the dark matter and carries the released "
-          "energy, while the dark matter it crosses is kicked forward and trails it; transitioned regions recollapse in their negative vacuum, and isolated "
+          "degeneracy density, the transition advances from voids into sheets and filaments as the universe expands, and galactic halos keep the held "
+          "vacuum. Within the voids, the wall is a fraction of a millimeter thick, runs away, becomes transparent to the dark matter and carries the released "
+          "energy, while the dark matter it crosses is kicked forward and trails it; the transitioned regions recollapse in their negative vacuum, and isolated "
           "Hubble-scale bubbles develop trapped surfaces."))
-add(("p", "The observational implications follow from the environment. The dark energy measured inside haloes is unchanged until the global recollapse, "
-          "so local tests see none of the transition, while the volume-averaged expansion responds to the voids. The dark matter must be a nonthermal boson in "
+add(("p", "The observational implications follow from the environment. The dark energy measured inside halos is unchanged until the global recollapse; "
+          "thus, local tests reveal no transition, whereas the volume-averaged expansion responds to the voids. The dark matter must be a nonthermal boson in "
           "the meV to sub-eV range with a coupling to the scalar of strength $M\\approx f$, which changes its mass by a factor %.1f between the vacua; such a "
           "coupling acts only over the Compton length of the scalar and is invisible to astrophysical fifth-force tests. The dark energy is exactly $w=-1$ "
           "until the trigger, and the order of the future transition follows the density of the cosmic web, $a_{\\rm tr}\\propto(1+\\delta)^{1/3}$. Within "
-          "the resolved treatment of Section 3.5, a detection of thermal-relic dark matter, or of dark matter heavier than about an eV, would exclude the "
+          "the resolved treatment of Section 3.5, a detection of thermal-relic dark matter, or of dark matter heavier than approximately one eV, would exclude the "
           "density-triggered decay of a dark-energy-scale vacuum in this class of models."
           % (DM["A_true"] / DM["A_false"])))
 add(("p", "The limitations are specific. The granular decay rate is computed at first order in each source's coupling; the nonperturbative test, "
-          "which shows that first order overstates the suppression, is made for a single source on the bubble axis, not for many sources at arbitrary "
+          "which shows that first order overstates the suppression, is performed for a single source on the bubble axis, not for many sources at arbitrary "
           "positions, and the conclusion is a constraint within this coupling and vacuum model, not a universal statement about particle dark matter. The wave-dark-matter crossing is simulated in 1+1 dimensions for a planar wall, not for an expanding "
           "bubble. The local density is treated as constant along the past light cone of a region, which is conservative for voids; "
           "the void statistics enter only through the depth of the emptiest regions; the advance of the walls into denser regions and the islands of held "
@@ -792,8 +792,8 @@ add(("pb", "Data and code availability.", "All code (Python, NumPy, SciPy, Matpl
 add(("pb", "Related manuscript.", "A companion manuscript on the homogeneous version of the trigger and its continuation into cycles has been prepared for "
         "General Relativity and Gravitation%s; it shares the class of models but none of the results reported here."
         % ((", archived at https://doi.org/%s" % COMP["paper"]) if COMP.get("paper") else "")))
-add(("pb", "Declaration of generative AI and AI-assisted technologies in the writing process.", "During the preparation of this work the author used Claude "
-        "(Anthropic) to assist with the numerical analysis, code, literature checking and drafting. After using this tool, the author reviewed and edited the "
+add(("pb", "Declaration of generative AI and AI-assisted technologies in the writing process.", "During the preparation of this work, the author used Claude "
+        "(Anthropic) to assist with the numerical analysis, coding, literature checking and drafting. After using this tool, the author reviewed and edited the "
         "content as needed and takes full responsibility for the content of the publication."))
 add(("h1", "References"))
 
@@ -1012,8 +1012,8 @@ def letter():
          "sources, confirm this within a first-order treatment, and the mean field is restored only for wave dark matter between about 3 meV and "
          "0.25 eV, which a 1+1-dimensional simulation of a wall running through such dark matter supports.")
     para("For that dark matter the transition is environmental: it begins in the emptiest voids, the past is protected only if the mean coupling today is "
-         "close to the degeneracy density, and galactic haloes keep the old vacuum. The paper then computes the Coleman-De Luccia bounce and the wall, the "
-         "transmission of fields and of the dark matter through the wall (which runs away within a millimetre and filters a fraction of order 1e-88), the "
+         "close to the degeneracy density, and galactic halos keep the old vacuum. The paper then computes the Coleman-De Luccia bounce and the wall, the "
+         "transmission of fields and of the dark matter through the wall (which runs away within a millimeter and filters a fraction of order 1e-88), the "
          "Israel junction, the completion of the transition and the fate of the enclosed regions; an isolated Hubble-scale bubble develops a trapped "
          "surface. An optional neutrino coupling is shown to be invisible to terrestrial oscillation experiments, with its cosmological signatures given. A "
          "continuation through a bounce is shown not to be supported, because it would need a thermal relic.")

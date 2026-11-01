@@ -6,7 +6,7 @@ Leon Sandler, Independent Researcher — sandler.leon@gmail.com — ORCID 0009-0
 
 Code, data and manuscript for a paper prepared for **Physics of the Dark Universe** (Elsevier). Manuscript:
 `manuscript/PDU_Vacuum_Bubbles.{docx,tex,pdf}` (elsarticle), supplement `manuscript/PDU_Vacuum_Bubbles_Supplement.docx`, cover letter
-`manuscript/PDU_Cover_Letter.docx`. Archived on Zenodo: paper 10.5281/zenodo.23849855, code 10.5281/zenodo.23849858 (version 1.1.0; all versions:
+`manuscript/PDU_Cover_Letter.docx`. Archived on Zenodo: paper 10.5281/zenodo.23850096, code 10.5281/zenodo.23850099 (version 1.1.1; all versions:
 10.5281/zenodo.23841873 / 10.5281/zenodo.23841877).
 
 ## What the paper shows
@@ -20,7 +20,7 @@ density is high. In the mean-field description, dilution makes the held vacuum m
   mean-field suppression survives). The mean field holds for **wave dark matter heavier than the field and still classical, ≈ 3 meV – 0.25 eV**.
 * **Wave dark matter and the wall (1+1 D, backreaction).** The wall's Lorentz factor is 7.7% below the mean-field run; the dark matter receives the
   sudden-crossing energy (4.07 vs (1+r²)/2 = 4.19 per swept density) and trails the wall at 0.75c (predicted (r²−1)/(r²+1) = 0.76).
-* **Environment.** Decay begins in the emptiest voids; a region completes its transition at a ∝ (1+δ)^{1/3}; galactic haloes keep the held vacuum.
+* **Environment.** Decay begins in the emptiest voids; a region completes its transition at a ∝ (1+δ)^{1/3}; galactic halos keep the held vacuum.
 * **Fate.** Transitioned regions recollapse; an isolated Hubble-scale bubble develops a trapped surface (apparent horizon) before its interior bounces,
   insensitive to the exterior cosmology. A bounce continuation would need a thermal relic and is not supported.
 * **Optional neutrino coupling.** Invisible to DUNE/Hyper-K (constant shift, ΔP = 0); environment- and redshift-dependent neutrino mass of order
